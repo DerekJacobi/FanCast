@@ -28,7 +28,7 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'omniauth-facebook'
 
-gem "oauth-plugin", "~> 0.4.0"
+#gem "oauth-plugin", "~> 0.4.0"
 
 # Use Unicorn as the app server
 # gem 'unicorn'
