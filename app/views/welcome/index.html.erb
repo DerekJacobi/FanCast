@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Broadcastme</title>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <h1>NFL Games Schedule</h1>
+    <% require 'net/http' %>
+    <% url = URI.parse('http://api.sportradar.us/nfl-t1/2015/REG/1/schedule.json?api_key=yffrcfjarh5ywrazrcc8f7g3') %>
+    <% req = Net::HTTP::Get.new(url.to_s) %>
+    <% res = Net::HTTP.start(url.host, url.port) {|http| http.request(req)} %>
+    <% data = JSON.parse(res.body) %>
+    <% data['games'].each do |game| %>
+    <%= 'Home Team: ' + game['home'] %>
+    <%= 'Away Team: ' + game['away'] %>
+    <% end %>
+  </body>
+
+</html>
