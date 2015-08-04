@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  email: MyString
+  password_digest: MyString
+  location: MyString
+  mixlr: MyString
+  role: 1
+  facebook: MyString
+  twitter: MyString
+  instagram: MyString
+  broadcast_id: 1
+  event_id: 1
+  provider: MyString
+  uid: MyString
+  name: MyString
+  image: MyString
+  token: MyString
+  expires_at: 2015-08-04 12:13:59
+
+two:
+  username: MyString
+  email: MyString
+  password_digest: MyString
+  location: MyString
+  mixlr: MyString
+  role: 1
+  facebook: MyString
+  twitter: MyString
+  instagram: MyString
+  broadcast_id: 1
+  event_id: 1
+  provider: MyString
+  uid: MyString
+  name: MyString
+  image: MyString
+  token: MyString
+  expires_at: 2015-08-04 12:13:59
