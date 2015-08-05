@@ -3,10 +3,14 @@ Rails.application.routes.draw do
   resources :broadcasts
   resources :games
   resources :users
+  resources :welcome
+
+  resource :session, only: [:new, :create, :destroy]
+
 
   root to: 'games#index'
 
-  match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
+  match 'auth/:provider/callback', to: 'sessions#createfb', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
   match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
