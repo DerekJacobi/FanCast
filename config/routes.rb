@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :games
   resources :users
 
-  root to: 'games#index'
+  root to: 'users#home'
 
   match 'auth/:provider/callback', to: 'sessions#create', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
