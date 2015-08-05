@@ -25,6 +25,14 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+gem 'aws-sdk', '~> 1.5.7'	# amazon web services gem
+gem 'paperclip' 		# paperclip gem for file management
+gem 'dotenv-rails', :groups => [:development, :test]	# env variable to keep sensitive data hidden
+
+gem 'rmagick', '~> 2.15.2'
+gem 'rails_12factor'
+gem 'jquery-ui-rails'
+gem 'faker'
 
 gem 'omniauth-facebook'
 

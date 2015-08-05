@@ -1,0 +1,32 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <input type="hidden" name="authenticy_token" value="<%= form_authenticity_token %>">
+  <%= f.hidden_field :role, :value => "listener"  %>
+
+  <div class="input-field">
+    <%= f.label :username %><br>
+    <%= f.text_field :username %>
+  </div>
+  <div class="input-field">
+    <label for="user_email" data-error="wrong" data-success="right">Email</label><br>
+    <input type="email" name="user[email]" id="user_email" class="validate" value="<%=@user.email%>">
+  </div>
+  <div class="input-field">
+    <%= f.label :password %><br>
+    <%= f.password_field :password %>
+  </div>
+  <div class="actions">
+    <button type="submit" name="action">Submit</button>
+  </div>
+<% end %>

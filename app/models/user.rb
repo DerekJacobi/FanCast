@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_secure_password
   has_many :follows
   has_many :broadcasts
   has_many :games
@@ -14,4 +15,19 @@ class User < ActiveRecord::Base
       user.save!
     end
   end
+
+  enum role: [:listener, :broadcaster, :admin]
+  after_initialize :set_default_role, :if => :new_record?
+
+  def set_default_role
+    self.role ||= :listener
+  end
+
+  has_attached_file :image, styles: {
+    small: "64x64",
+    med: "200x200",
+    large: "400x400"
+  }
+  validates_attachment :image, content_type: { content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"] }
+
 end
