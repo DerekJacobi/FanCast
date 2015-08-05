@@ -1,14 +1,22 @@
 Rails.application.routes.draw do
   resources :follows
   resources :broadcasts
-  resources :games
   resources :users
   resources :welcome
 
   resource :session, only: [:new, :create, :destroy]
 
 
-  root to: 'games#index'
+  root to: 'users#home'
+
+  get 'games' => 'games#index'
+
+  get 'games/nfl' => 'games#nfl', as: :nfl
+
+  get 'games/nba' => 'games#nba', as: :nba
+
+  get 'games/mlb' => 'games#mlb', as: :mlb
+
 
   match 'auth/:provider/callback', to: 'sessions#createfb', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]

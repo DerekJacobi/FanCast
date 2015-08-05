@@ -1,3 +1,46 @@
 // Place all the styles related to the games controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.nfl-teams, .top-nfl-header, .nfl-afc-teams, .nfl-nfc-teams, .team-div-nfl {
+  border: 1px solid black;
+}
+
+.top-nfl-header {
+  display: flex;
+}
+
+.afc-logo, .nfc-logo {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 50%;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.nfl-teams {
+  height: 100%;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.top-nfl-header {
+  width: 100%;
+  height: 25%;
+}
+
+.nfl-afc-teams, .nfl-nfc-teams {
+  width: 50%;
+}
+
+.team-div-nfl {
+  height: 75%;
+  display: flex;
+}
+
+.divison {
+  background-color: blue !important;
+}
