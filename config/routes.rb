@@ -2,12 +2,11 @@ Rails.application.routes.draw do
   resources :follows
   resources :broadcasts
   resources :users
-  resources :welcome
 
   resource :session, only: [:new, :create, :destroy]
 
 
-  root to: 'users#home'
+  root to: 'users#new'
 
   get 'games' => 'games#index'
 

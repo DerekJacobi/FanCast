@@ -1,8 +1,15 @@
 class User < ActiveRecord::Base
   has_secure_password
+
   has_many :follows
+  has_many :followers, through: :follows
+  # after this line of code we can now @user.followers
+  # but it really executes @user.follows (the through tells us that)
+  # then, on that collection, it will .####### where ###### ==> source
+
   has_many :broadcasts
-  has_many :games
+  has_many :games_broadcasted, through: :broadcasts, source: :game
+
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
