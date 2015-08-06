@@ -1,9 +1,9 @@
 <div class="team-follow">
-  <h1>Team Page</h1> <button>Follow TeamName</button>
+  <h1>Team Page</h1> <button>Follow <%= @team %></button>
 </div>
 <div class="main-team">
   <div class='team-logo'>
-    Logo Here
+    <%= image_tag(@team + "-logo.png", :alt => @team + " logo") %>
   </div>
 
   <div class="broadcasters">
@@ -12,7 +12,7 @@
 
 
   <div class='team-stats'>
-    <h3>Record: </h3>
+    <h3>Record: <%= @team %></h3>
     <p>Head Coach: </p>
     <p>Next Opponent: </p>
     <p>Conference Standing: </p>
