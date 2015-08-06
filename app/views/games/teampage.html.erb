@@ -31,12 +31,15 @@
 </div>
 
 <script>
-$(document).ready(function(){
+  $(document).ready(function(){
 
-  $(".team-follow-button").click(function(){
-    console.log("<%= @team %>")
+    $(".team-follow-button").click(function(){
+      console.log("<%= @team %>")
+      <% @followedteams = FollowTeam.new %>
+      <% @followedteams.user_id = current_user.id %>
+      <% @followedteams.team = @team %>
+      <% @followedteams.save %>
+    });
+
   });
-
-});
-
 </script>
