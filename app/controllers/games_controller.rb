@@ -26,7 +26,6 @@ class GamesController < ApplicationController
       @capacity = en3[0]["venue"]["capacity"]
       @surface = en3[0]["venue"]["surface"]
       @type = en3[0]["venue"]["type"]
-
   end
 
   private
@@ -38,7 +37,7 @@ class GamesController < ApplicationController
   def team_name(team)
     if team == "Jets"
       @team_id = "NYJ"
-    elsif team == "Newengland"
+    elsif team == "Patriots"
       @team_id = "NE"
     elsif team == "Bills"
       @team_id = "BUF"

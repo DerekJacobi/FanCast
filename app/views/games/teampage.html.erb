@@ -1,9 +1,12 @@
+
 <div class="team-follow">
-  <h1><%= @team %> Page</h1> <button>Follow <%= @team %></button>
+  <h1><%= @team %> Page</h1> <button class="team-follow-button">Follow <%= @team %></button>
 </div>
 <div class="main-team">
   <div class='team-logo'>
-    <%= image_tag(@team + ".jpg", :alt => @team + " logo") %>
+    <img src="http://www.brendanhastings.nyc/fc/nfl/<%=@team%>.jpg" alt= @team + "logo" />
+
+    <!-- <%= image_tag(@team + ".png", :alt => @team + " logo") %> -->
   </div>
 
   <div class="broadcasters">
@@ -20,9 +23,20 @@
     <h3>Stadium Info</h3>
     <p>Stadium: <%= @stadium %> </p>
     <p>City: <%= @city %>, State: <%= @state %> </p>
-    <p>Capacity:<%= @capacity %> </p>
+    <p>Capacity: <%= @capacity %> </p>
     <p>Surface: <%= @surface  %> </p>
     <p>Type: <%= @type %></p>
   </div>
 
 </div>
+
+<script>
+$(document).ready(function(){
+
+  $(".team-follow-button").click(function(){
+    console.log("<%= @team %>")
+  });
+
+});
+
+</script>
