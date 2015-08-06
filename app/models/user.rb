@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :broadcasts
   has_many :games_broadcasted, through: :broadcasts, source: :game
+  has_many :follow_teams
 
 
   def self.from_omniauth(auth)

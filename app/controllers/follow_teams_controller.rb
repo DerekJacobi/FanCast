@@ -1,0 +1,2 @@
+class FollowTeamsController < ApplicationController
+end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :follow_teams
   resources :follows
   resources :broadcasts
   resources :users
