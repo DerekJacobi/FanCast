@@ -1,0 +1,38 @@
+
+<div id="user_nav">
+  <% if current_user %>
+    Signed in as <strong><%= current_user.name %></strong>!
+    <%= link_to "Sign out", signout_path, id: "sign_out" %>
+  <% else %>
+    <%= link_to "Sign in with Facebook", "/auth/facebook", id: "sign_in" %>
+  <% end %>
+</div>
+
+<form action="<%= session_path %>" method="post">
+
+  <input type="hidden"
+         name="authenticity_token"
+         value="<%= form_authenticity_token %>">
+
+  <input type="hidden"
+         name="provider"
+         value="fancast">
+
+  <div class="input-field">
+    <label for="username">Username</label>
+    <input type="text"
+           id="un"
+           name="user[name]">
+  </div>
+
+  <div class="input-field">
+    <label for="password">Password</label>
+    <input type="password"
+           id="pw"
+           name="user[password]">
+  </div>
+
+  <div class="actions">
+    <button type="submit" name="action">Submit</button>
+  </div>
+</form>

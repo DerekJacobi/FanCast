@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>FANcastR</title>
+  <title>FANcast</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -33,6 +35,9 @@
      }(document, 'script', 'facebook-jssdk'));
   </script>
 
+<<<<<<< HEAD
+<%= yield %>
+=======
   <div id="user_nav">
     <% if current_user %>
       Signed in as <strong><%= current_user.name %></strong>!
@@ -74,6 +79,7 @@
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
+>>>>>>> ef37e61ca4055a4f5cd474a2901a7ff292be0224
 
   <div class="container">
     <%= yield %>
