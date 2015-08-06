@@ -1,9 +1,9 @@
 <div class="team-follow">
-  <h1>Team Page</h1> <button>Follow <%= @team %></button>
+  <h1><%= @team %> Page</h1> <button>Follow <%= @team %></button>
 </div>
 <div class="main-team">
   <div class='team-logo'>
-    <%= image_tag(@team + "-logo.png", :alt => @team + " logo") %>
+    <%= image_tag(@team + ".jpg", :alt => @team + " logo") %>
   </div>
 
   <div class="broadcasters">
@@ -12,18 +12,17 @@
 
 
   <div class='team-stats'>
-    <h3>Record: <%= @team %></h3>
-    <p>Head Coach: </p>
-    <p>Next Opponent: <%= @schedule[:weeks][0][:games][@week][:away] %> </p>
+    <h3> <%= @team %></h3>
+    <p>Next Opponent: <%= @next_opponent %> </p>
   </div>
 
   <div class='venue-info'>
     <h3>Stadium Info</h3>
-    <p>Stadium: <%= @schedule[:weeks][0][:games][0][:venue][:name] %> </p>
-    <p>City: <%= @schedule[:weeks][0][:games][0][:venue][:city] %>, State: <%= @schedule[:weeks][0][:games][0][:venue][:state]%> </p>
-    <p>Capacity:<%= @schedule[:weeks][0][:games][0][:venue][:capacity] %> </p>
-    <p>Surface: <%= @schedule[:weeks][0][:games][0][:venue][:surface] %> </p>
-    <p>Type: <%= @schedule[:weeks][0][:games][0][:venue][:type] %></p>
+    <p>Stadium: <%= @stadium %> </p>
+    <p>City: <%= @city %>, State: <%= @state %> </p>
+    <p>Capacity:<%= @capacity %> </p>
+    <p>Surface: <%= @surface  %> </p>
+    <p>Type: <%= @type %></p>
   </div>
 
 </div>
