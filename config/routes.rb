@@ -17,6 +17,8 @@ Rails.application.routes.draw do
 
   get 'games/mlb' => 'games#mlb', as: :mlb
 
+  get 'games/:sport/:team' => 'games#teampage'
+
 
   match 'auth/:provider/callback', to: 'sessions#createfb', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
