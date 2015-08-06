@@ -1,9 +1,9 @@
 <div class="team-follow">
-  <h1>Team Page</h1> <button>Follow TeamName</button>
+  <h1><%= @team %> Page</h1> <button>Follow <%= @team %></button>
 </div>
 <div class="main-team">
   <div class='team-logo'>
-    Logo Here
+    <%= image_tag(@team + ".jpg", :alt => @team + " logo") %>
   </div>
 
   <div class="broadcasters">
@@ -12,19 +12,17 @@
 
 
   <div class='team-stats'>
-    <h3>Record: </h3>
-    <p>Head Coach: </p>
-    <p>Next Opponent: </p>
-    <p>Conference Standing: </p>
+    <h3> <%= @team %></h3>
+    <p>Next Opponent: <%= @next_opponent %> </p>
   </div>
 
   <div class='venue-info'>
-    <h3>Stadium Info:</h3>
-    <p>Stadium: </p>
-    <p>City:, State: </p>
-    <p>Capacity: </p>
-    <p>Surface: </p>
-    <p>Type: </p>
+    <h3>Stadium Info</h3>
+    <p>Stadium: <%= @stadium %> </p>
+    <p>City: <%= @city %>, State: <%= @state %> </p>
+    <p>Capacity:<%= @capacity %> </p>
+    <p>Surface: <%= @surface  %> </p>
+    <p>Type: <%= @type %></p>
   </div>
 
 </div>
