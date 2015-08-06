@@ -10,8 +10,6 @@ class CreateUsers < ActiveRecord::Migration
       t.string :facebook
       t.string :twitter
       t.string :instagram
-      t.integer :broadcast_id
-      t.integer :game_id
       t.string :provider
       t.string :uid
       t.string :name

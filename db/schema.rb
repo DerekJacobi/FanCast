@@ -11,43 +11,47 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150805162813) do
+ActiveRecord::Schema.define(version: 20150806134224) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "broadcasts", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer  "game_id"
-    t.integer  "user_id"
   end
 
-  add_index "broadcasts", ["game_id"], name: "index_broadcasts_on_game_id"
-  add_index "broadcasts", ["user_id"], name: "index_broadcasts_on_user_id"
+  add_index "broadcasts", ["game_id"], name: "index_broadcasts_on_game_id", using: :btree
+  add_index "broadcasts", ["user_id"], name: "index_broadcasts_on_user_id", using: :btree
 
   create_table "follows", force: :cascade do |t|
-    t.string   "follower_id"
-    t.string   "integer"
+    t.integer  "follower_id"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.boolean  "active",      default: true
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "follows", ["user_id"], name: "index_follows_on_user_id"
+  add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree
 
   create_table "games", force: :cascade do |t|
     t.string   "date"
     t.string   "time"
     t.string   "location"
     t.string   "league"
-    t.integer  "league_id"
     t.string   "home_team"
     t.string   "away_team"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.integer  "broadcast_id"
-    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_index "games", ["user_id"], name: "index_games_on_user_id"
+  create_table "schedules", force: :cascade do |t|
+    t.json   "content"
+    t.string "league"
+    t.string "description"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
@@ -59,8 +63,6 @@ ActiveRecord::Schema.define(version: 20150805162813) do
     t.string   "facebook"
     t.string   "twitter"
     t.string   "instagram"
-    t.integer  "broadcast_id"
-    t.integer  "game_id"
     t.string   "provider"
     t.string   "uid"
     t.string   "name"
@@ -75,10 +77,7 @@ ActiveRecord::Schema.define(version: 20150805162813) do
     t.datetime "image_updated_at"
   end
 
-  create_table "welcomes", force: :cascade do |t|
-    t.string   "Home"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+  add_foreign_key "broadcasts", "games"
+  add_foreign_key "broadcasts", "users"
+  add_foreign_key "follows", "users"
 end
