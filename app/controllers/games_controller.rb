@@ -26,7 +26,7 @@ class GamesController < ApplicationController
       @capacity = en3[0]["venue"]["capacity"]
       @surface = en3[0]["venue"]["surface"]
       @type = en3[0]["venue"]["type"]
-      
+      fail
   end
 
 

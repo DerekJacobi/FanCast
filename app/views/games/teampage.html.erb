@@ -34,7 +34,6 @@
   $(document).ready(function(){
 
     $(".team-follow-button").click(function(){
-      console.log("<%= @team %>")
       <% @followedteams = FollowTeam.new %>
       <% @followedteams.user_id = current_user.id %>
       <% @followedteams.team = @team %>
