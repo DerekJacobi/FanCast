@@ -46,6 +46,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 194px;
+  height: 194px;
+  margin-top: 17%;
 }
 
 .divison {
@@ -103,3 +106,23 @@
   .demo-card-event > .mdl-card__actions > .mdl-button {
     color: #fff;
   }
+
+.logo-next-event {
+  display: inline-block;
+}
+
+.teampage {
+  display: flex;
+}
+
+.mdl-layout {
+    width: 70% !important;
+}
+
+.container {
+    margin-left: 2% !important;
+}
+.demo-card-event.mdl-card {
+  height: 194px;
+  width: 194px;
+}
