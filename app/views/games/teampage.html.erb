@@ -1,34 +1,67 @@
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header
+            mdl-layout--fixed-tabs">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title"><%= @team %></span>
+    </div>
+    <!-- Tabs -->
+    <div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+      <a href="#fixed-tab-1" class="mdl-layout__tab is-active">Tab 1</a>
+      <a href="#fixed-tab-2" class="mdl-layout__tab">Broadcasters</a>
+      <a href="#fixed-tab-3" class="mdl-layout__tab">Team Info</a>
+    </div>
+  </header>
 
-<div class="team-follow">
-  <h1><%= @team %> Page</h1> <button class="team-follow-button">Follow <%= @team %></button>
+  <main class="mdl-layout__content">
+    <section class="mdl-layout__tab-panel is-active" id="fixed-tab-1">
+      <div class="page-content">
+        <div class='next-game'>
+          <div class="mdl-card mdl-shadow--2dp demo-card-event">
+            <div class="mdl-card__title mdl-card--expand">
+              <h4>
+                Next Game: <%= @next_opponent %>
+                May 24, 2016<br>
+                7-11pm
+              </h4>
+            </div>
+            <div class="mdl-card__actions mdl-card--border">
+              <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+                Add to Calendar
+              </a>
+              <div class="mdl-layout-spacer"></div>
+              <i class="material-icons">event</i>
+            </div>
+          </div>
+        </div>
+
+    
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-2">
+      <div class="page-content">
+        <div class="broadcasters">
+          <h3>Most Popular Broadcasters</h3>
+        </div>
+      </div>
+    </section>
+    <section class="mdl-layout__tab-panel" id="fixed-tab-3">
+      <div class="page-content">
+
+        <div class='venue-info'>
+          <h3> <%= @team %></h3>
+          <p>Stadium: <%= @stadium %> </p>
+          <p>City: <%= @city %>, State: <%= @state %> </p>
+          <p>Capacity: <%= @capacity %> </p>
+          <p>Surface: <%= @surface  %> </p>
+          <p>Type: <%= @type %></p>
+        </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
 </div>
-<div class="main-team">
-  <div class='team-logo'>
-    <img src="http://www.brendanhastings.nyc/fc/nfl/<%=@team%>.jpg" alt= @team + "logo" />
 
-    <!-- <%= image_tag(@team + ".png", :alt => @team + " logo") %> -->
-  </div>
-
-  <div class="broadcasters">
-    <h3>Most Popular Broadcasters</h3>
-  </div>
-
-
-  <div class='team-stats'>
-    <h3> <%= @team %></h3>
-    <p>Next Opponent: <%= @next_opponent %> </p>
-  </div>
-
-  <div class='venue-info'>
-    <h3>Stadium Info</h3>
-    <p>Stadium: <%= @stadium %> </p>
-    <p>City: <%= @city %>, State: <%= @state %> </p>
-    <p>Capacity: <%= @capacity %> </p>
-    <p>Surface: <%= @surface  %> </p>
-    <p>Type: <%= @type %></p>
-  </div>
-
-</div>
 
 <script>
   $(document).ready(function(){
