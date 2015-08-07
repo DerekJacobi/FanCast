@@ -4,7 +4,7 @@
 
 
 .nfl-teams, .top-nfl-header, .nfl-afc-teams, .nfl-nfc-teams, .team-div-nfl {
-  border: 1px solid black;
+  background-color: 1px solid black;
 }
 
 .top-nfl-header {
@@ -41,6 +41,16 @@
   display: flex;
 }
 
+.next-game {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 194px;
+  height: 194px;
+  margin-top: 17%;
+}
+
 .divison {
   background-color: blue !important;
 }
@@ -57,8 +67,7 @@
 }
 
 .broadcasters, .venue-info, .team-stats {
-  border: black 1px solid;
-  width: 33%;
+  width: 100%;
   height: 350px;
   padding-left: 5px;
 }
@@ -66,7 +75,54 @@
 .team-follow{
   display: flex;
   margin-bottom: 3%;
-  h1 {
-    padding-right: 25px;
+  display: flex;
+  button {
+    flex-grow: 1;
   }
+}
+
+// game event
+  .demo-card-event.mdl-card {
+    width: 256px;
+    height: 256px;
+    background: #3E4EB8;
+  }
+  .demo-card-event > .mdl-card__actions {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+  .demo-card-event > .mdl-card__title {
+    align-items: flex-start;
+  }
+  .demo-card-event > .mdl-card__title > h4 {
+    margin-top: 0;
+  }
+  .demo-card-event > .mdl-card__actions {
+    display: flex;
+    box-sizing:border-box;
+    align-items: center;
+  }
+  .demo-card-event > .mdl-card__title,
+  .demo-card-event > .mdl-card__actions,
+  .demo-card-event > .mdl-card__actions > .mdl-button {
+    color: #fff;
+  }
+
+.logo-next-event {
+  display: inline-block;
+}
+
+.teampage {
+  display: flex;
+}
+
+.mdl-layout {
+    width: 70% !important;
+}
+
+.container {
+    margin-left: 2% !important;
+}
+.demo-card-event.mdl-card {
+  height: 194px;
+  width: 194px;
 }
