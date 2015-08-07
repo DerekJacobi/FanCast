@@ -1,29 +1,29 @@
 <div class="teampage">
   <div class='logo-next-event'>
 
-  <div class="main-team">
-    <div class='team-logo'>
-      <img src="http://www.brendanhastings.nyc/fc/nfl/<%=@team%>.jpg" alt= @team + "logo" />
+    <div class="main-team">
+      <div class='team-logo'>
+        <img src="http://www.brendanhastings.nyc/fc/nfl/<%=@team%>.jpg" alt= @team + "logo" />
+      </div>
     </div>
-  </div>
 
-  <div class='next-game'>
-    <div class="mdl-card mdl-shadow--2dp demo-card-event">
-      <div class="mdl-card__title mdl-card--expand">
-        <h4>
-          Next Game: <%= @next_opponent %><br>
-          Date: <%= @nextgamedate %>
-        </h4>
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Add to Calendar
-        </a>
-        <div class="mdl-layout-spacer"></div>
-        <i class="material-icons">event</i>
+    <div class='next-game'>
+      <div class="mdl-card mdl-shadow--2dp demo-card-event">
+        <div class="mdl-card__title mdl-card--expand">
+          <h4>
+            Next Game: <%= @next_opponent %><br>
+            Date: <%= @nextgamedate %>
+          </h4>
+        </div>
+        <div class="mdl-card__actions mdl-card--border">
+          <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+            Add to Calendar
+          </a>
+          <div class="mdl-layout-spacer"></div>
+          <i class="material-icons">event</i>
+        </div>
       </div>
     </div>
-  </div>
 
   </div>
 
@@ -64,11 +64,10 @@
           </div>
 
           </div>
-        </div>
       </section>
     </main>
   </div>
-
+</div>
 
 
 <script>
