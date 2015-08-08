@@ -1,32 +1,56 @@
-<%= form_for(@user) do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div id="signupbox" style="margin-top:50px" class="mainbox col-md-6 col-md-offset-3 ">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">Sign Up</div>
+                </div>
+                <div class="panel-body" >
 
-      <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+                  <%= form_for @user,:html => {:class => "form-horizontal"} do |f|%>
 
-  <input type="hidden" name="authenticy_token" value="<%= form_authenticity_token %>">
-  <%= f.hidden_field :role, :value => "listener"  %>
+                        <input value="listener" type="hidden" name="user[role]" id="user_role">
 
-  <div class="input-field">
-    <%= f.label :username %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="input-field">
-    <label for="user_email" data-error="wrong" data-success="right">Email</label><br>
-    <input type="email" name="user[email]" id="user_email" class="validate" value="<%=@user.email%>">
-  </div>
-  <div class="input-field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
-  </div>
-  <div class="actions">
-    <button type="submit" name="action">Submit</button>
-  </div>
-<% end %>
+                        <div id="signupalert" style="display:none" class="alert alert-danger">
+                            <p>Error:</p>
+                            <span></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user_email" data-error="wrong" data-success="right" class="col-md-3 control-label">Email</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="user[email]" id="user_email" class="validate" placeholder="Email Address">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user_name" class="col-md-3 control-label">Name</label>
+                            <div class="col-md-9">
+                                <input type="text" class="form-control" name="user[name]" id="user_name" placeholder="Name">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="user_password" class="col-md-3 control-label">Password</label>
+                            <div class="col-md-9">
+                                <input type="password" class="form-control" name="user[password]" id="user_password" placeholder="Password">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <!-- Button -->
+                            <div class="col-md-offset-3 col-md-9">
+                                <button for="signupform" id="btn-signup" type="submit" name="action" class="btn btn-info"><i class="icon-hand-right"></i>Sign Up</button>
+                                <span style="margin-left:8px;">or</span>
+                            </div>
+                        </div>
+
+                        <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+
+                            <div class="col-md-offset-3 col-md-9">
+                                <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="fa fa-facebook-official"></i>&nbsp&nbspSign Up with Facebook</button><%end%>
+                            </div>
+
+                        </div>
+                    </form>
+                 </div>
+            </div>
+ </div>

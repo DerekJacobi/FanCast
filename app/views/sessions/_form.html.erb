@@ -47,72 +47,10 @@
 
                                 <div class="form-group">
                                     <div class="col-md-12 control">
-                                        <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
-                                            Don't have an account!
-                                        <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show();">
-                                            Sign Up Here
-                                        </a>
-                                        </div>
+                                      
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
         </div>
-        <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 ">
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <div class="panel-title">Sign Up</div>
-                            <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
-                        </div>
-                        <div class="panel-body" >
-
-                          <%= form_for @user,:html => {:class => "form-horizontal"} do |f|%>
-
-                                <input value="listener" type="hidden" name="user[role]" id="user_role">
-
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
-                                    <span></span>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="user_email" data-error="wrong" data-success="right" class="col-md-3 control-label">Email</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="user[email]" id="user_email" class="validate" placeholder="Email Address">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="user_name" class="col-md-3 control-label">Name</label>
-                                    <div class="col-md-9">
-                                        <input type="text" class="form-control" name="user[name]" id="user_name" placeholder="Name">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="user_password" class="col-md-3 control-label">Password</label>
-                                    <div class="col-md-9">
-                                        <input type="password" class="form-control" name="user[password]" id="user_password" placeholder="Password">
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <!-- Button -->
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button for="signupform" id="btn-signup" type="submit" name="action" class="btn btn-info"><i class="icon-hand-right"></i>Sign Up</button>
-                                        <span style="margin-left:8px;">or</span>
-                                    </div>
-                                </div>
-
-                                <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
-
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="fa fa-facebook-official"></i>&nbsp&nbspSign Up with Facebook</button><%end%>
-                                    </div>
-
-                                </div>
-                            </form>
-                         </div>
-                    </div>
-         </div>
