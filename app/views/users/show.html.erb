@@ -1,13 +1,27 @@
-<div class = "content">
-  Testing facebook
-<div
-  class="fb-like"
-  data-share="true"
-  data-width="450"
-  data-show-faces="true">
+
+<div class="user-main">
+  <div class="user-left-col">
+    <div class="user-left-top">
+      <h3>Welcome <%= @current_user.name%>!</h3>
+    </div>
+    <div class="user-left-bottom">
+      <h4>Teams You Follow:</h4>
+      <% @current_user.follow_teams.each do |team| %>
+      <%= team.team %></br>
+      <% end %>
+    </div>
+  </div>
+  <div class="user-right-col">
+    <div class="user-right-top">
+      <h4>Upcoming Broadcasts</h4>
+
+    </div>
+    <div class="user-right-bottom">
+      <h4>Broadcasters You Follow:</h4>
+
+    </div>
+  </div>
 </div>
-</div>
-<br><br><br>
 
 
 <!--
@@ -15,8 +29,15 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
+<!--Mixlr link  -->
+<!-- <iframe src="https://mixlr.com/users/3966051/embed" width="40%" height="180px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe> -->
 
-<iframe src="https://mixlr.com/users/3966051/embed" width="40%" height="180px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe>
-
-</body>
-</html>
+<div class = "content">
+  Testing facebook
+  <div
+    class="fb-like"
+    data-share="true"
+    data-width="450"
+    data-show-faces="true">
+  </div>
+</div>
