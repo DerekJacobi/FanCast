@@ -14,6 +14,8 @@
  *= require_self
  */
 
+@import url(http://fonts.googleapis.com/css?family=Graduate|Play:400,700|Lato:400,300,700,900);
+
 .content {
   font-size: 20px;
 }
@@ -25,4 +27,10 @@
 body {
   background-image: url('fancast-background.png');
   background-size: 100% 100%;
+}
+
+.navbar-default .navbar-brand {
+  font-family: 'Graduate', cursive;
+  font-size: 40px !important;
+  color: #000 !important;
 }
