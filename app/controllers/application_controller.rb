@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :current_user
 
+  before_action :ensure_users
+
 
   private
   def login!(user)
@@ -19,4 +21,9 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
   end
 
+  def ensure_users
+  unless current_user
+    @user = User.new
+  end
+end
 end
