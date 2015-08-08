@@ -47,9 +47,10 @@
 }
 
 .user-main {
-  width: 100%;
-  height: 400px;
+  width: 96%;
+  height: 90%;
   display: flex;
+  position:absolute;
 }
 
 .user-left-col {
@@ -63,12 +64,14 @@
   width: 50%;
   height: 100%;
   background-color: white;
+  margin-right: 2%;
 }
 
 .user-right-top, .user-left-top {
   padding-left: 2%;
   height: 50%;
   border: 1px solid black;
+  margin-bottom:2%
 
 }
 
