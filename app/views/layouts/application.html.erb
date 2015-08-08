@@ -69,7 +69,7 @@
               <li><a href="#">Upcoming Events</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Settings</a></li>
-              <li><a href="#">Log Out</a></li>
+              <li><%= link_to('Logout', session_path, :method => :delete) %></li>
             </ul>
           </li>
         </ul>
