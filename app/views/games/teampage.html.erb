@@ -71,7 +71,6 @@
 
 <% if current_user %>
   <script>
-
     $(document).ready(function(){
       $(".team-follow-button").click(function(){
         <% @followedteams = FollowTeam.new %>
@@ -81,6 +80,5 @@
       });
 
     });
-
   </script>
 <% end %>
