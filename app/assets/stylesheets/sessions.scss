@@ -1,3 +1,13 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+//Removes margin on left side of login/signup in modal
+.col-md-offset-3 {
+  margin-left: 0% !important;
+}
+
+//increase size of login/signup window to full with of modal
+.col-md-6 {
+    width: 100% !important;
+}
