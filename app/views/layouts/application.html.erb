@@ -61,17 +61,23 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/games">All Sports</a></li>
-          <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal">Log in</a></li>
-          <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal1">Sign Up</a></li>
+           <% if current_user == nil %>
+            <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal">Log in</a></li>
+            <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal1">Sign Up</a></li>
+          <% end %>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Profile</a></li>
+              <% if current_user && current_user.listener? %>
+                <li><%= link_to(current_user.name, user_path(current_user.id)) %></li>
+              <%end%>
               <li><a href="#">Following</a></li>
               <li><a href="#">Upcoming Events</a></li>
               <li role="separator" class="divider"></li>
               <li><a href="#">Settings</a></li>
-              <li><%= link_to('Logout', session_path, :method => :delete) %></li>
+              <% if current_user && current_user.listener? %>
+                <li><%= link_to('Logout', session_path, :method => :delete) %></li>
+              <%end%>
             </ul>
           </li>
         </ul>
