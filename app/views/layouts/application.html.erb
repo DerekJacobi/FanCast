@@ -61,9 +61,11 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/games">All Sports</a></li>
-          <li><a href="/games">login</a></li>
           <li>
-            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">sign up</button>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#login">login</button>
+          </li>
+          <li>
+            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#signup">sign up</button>
           </li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
@@ -81,20 +83,34 @@
     </div><!-- /.container-fluid -->
   </nav>
 
-  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal fade" id="signup" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"> sign up</h4>
       </div>
       <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <div><%= render 'sessions/form' %></div>
       </div>
       <div class="modal-footer">
       </div>
     </div>
   </div>
+</div>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+    </div>
+    <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div><%= render 'sessions/loginform' %></div>
+    </div>
+    <div class="modal-footer">
+    </div>
+  </div>
+</div>
 </div>
 
   <div class="container">
