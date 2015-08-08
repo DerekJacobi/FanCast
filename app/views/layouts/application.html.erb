@@ -61,8 +61,8 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/games">All Sports</a></li>
-          <li><a class="active" data-toggle="modal" data-target="#myModal">Log in</a></li>
-          <li><a class="active" data-toggle="modal" data-target="#myModal1">Sign Up</a></li>
+          <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal">Log in</a></li>
+          <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal1">Sign Up</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span> <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -85,7 +85,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Sign up</h4>
+        <h4 class="modal-title" id="myModalLabel">Welcome Back!</h4>
       </div>
       <div class="modal-body">
         <div><%= render 'sessions/form' %></div>
@@ -101,6 +101,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Sign up with E-mail or Facebook</h4>
       </div>
       <div class="modal-body">
         <div><%= render 'users/form' %></div>
