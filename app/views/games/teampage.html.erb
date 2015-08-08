@@ -69,19 +69,18 @@
   </div>
 </div>
 
+<% if current_user %>
+  <script>
 
-<script>
+    $(document).ready(function(){
+      $(".team-follow-button").click(function(){
+        <% @followedteams = FollowTeam.new %>
+        <% @followedteams.user_id = current_user.id %>
+        <% @followedteams.team = @team %>
+        <% @followedteams.save %>
+      });
 
-
-  $(document).ready(function(){
-
-    $(".team-follow-button").click(function(){
-      <% @followedteams = FollowTeam.new %>
-      <% @followedteams.user_id = current_user.id %>
-      <% @followedteams.team = @team %>
-      <% @followedteams.save %>
     });
 
-  });
-
-</script>
+  </script>
+<% end %>
