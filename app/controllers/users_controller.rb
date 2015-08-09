@@ -14,6 +14,7 @@ class UsersController < ApplicationController
       @followUsers = current_user.follow.all
       @followUser = current_user.follow.find_by(id:@user)
       @followUserNew = FollowTeam.new
+    end
   end
 
 
