@@ -51,31 +51,32 @@
   height: 90%;
   display: flex;
   position:absolute;
+  opacity: .9 !important;
 }
 
 .user-left-col {
   width: 50%;
   height: 100%;
-  background-color: white;
   margin-right: 2%;
 }
 
 .user-right-col {
   width: 50%;
   height: 100%;
-  background-color: white;
   margin-right: 2%;
 }
 
 .user-right-top, .user-left-top {
+  background-color: white;
   padding-left: 2%;
   height: 50%;
   border: 1px solid black;
-  margin-bottom:2%
+  padding-bottom:2%
 
 }
 
 .user-right-bottom, .user-left-bottom {
+  background-color: white;
   padding-left: 2%;
   height: 50%;
   margin-top: 1%;

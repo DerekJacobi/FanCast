@@ -1,0 +1,30 @@
+<% if current_user && current_user.id != @broadcaster.id %>
+      <% if @follow %>
+        <% @follows.each do |follow| %>
+          <% if follow.comedian_id == @broadcaster.id && follow.active == true %>
+              <%= form_for @follow do |f| %>
+                <input type="hidden" name="_method" value="patch">
+                <%= f.hidden_field :comedian_id, value: @broadcaster.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :torf, value: false  %>
+                  <button id="follow" type="submit" name="action">UNFOLLOW</button>
+              <% end %>
+          <% elsif follow.comedian_id == @broadcaster.id && follow.active== false %>
+              <%= form_for @follow do |f| %>
+                <%= f.hidden_field :comedian_id, value: @broadcaster.id %>
+                <%= f.hidden_field :user_id, value: current_user.id %>
+                <%= f.hidden_field :torf, value: true  %>
+                  <button id="follow" type="submit" name="action">FOLLOW</button>
+              <% end %>
+          <% end %>
+        <% end %>
+
+      <% else %>
+        <%= form_for @followNew do |f| %>
+          <%= f.hidden_field :comedian_id, value: @broadcaster.id %>
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :torf, value: true  %>
+            <button id="follow" type="submit" name="action">FOLLOW</button>
+        <% end %>
+      <% end %>
+    <% end %>
