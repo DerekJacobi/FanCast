@@ -17,9 +17,9 @@
       <tr>
         <td><a href="/users/<%=user.id%>"><%= user.name %></a></td>
         <td><%= user.location %></td>
-        <td><%= user.twitter %></td>
-        <td><%= user.facebook %></td>
-        <td><%= user.instagram %></td>
+        <td><a href="/users/<%=user.twitter%>"><i class="fa fa-twitter-square"></i></a></td>
+        <td><a href="/users/<%=user.facebook%>"><i class="fa fa-facebook-square"></i></a></td>
+        <td><a href="/users/<%=user.instagram%>"><i class="fa fa-instagram"></i></a></td>
       </tr>
     <% end %>
   </tbody>
