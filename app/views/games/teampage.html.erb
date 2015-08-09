@@ -76,38 +76,3 @@
     </main>
   </div>
 </div>
-
-<% if current_user && @follow == 1%>
-  <script>
-    $(document).ready(function(){
-      $(".team-follow-button").click(function(){
-        console.log('follow is 1');
-        <% @followedteams = FollowTeam.new %>
-        <% @followedteams.user_id = current_user.id %>
-        <% @followedteams.team = @team %>
-        <% @followedteams.active = true %>
-        <% @followedteams.save %>
-      });
-    });
-  </script>
-  <% elsif @follow == true %>
-  <script>
-    $(document).ready(function(){
-      $(".team-follow-button").click( function(){
-        console.log('follow is true');
-        <% @followteams.active = true %>
-        <% @followteams.save %>
-      });
-    });
-  </script>
-  <% elsif @follow == false %>
-  <script>
-    $(document).ready(function(){
-      $(".team-follow-button").click(function(){
-        console.log('follow is false');
-        <% @followteams.active = false %>
-        <% @followteams.save %>
-      });
-    });
-  </script>
-<% end %>

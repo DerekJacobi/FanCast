@@ -20,6 +20,9 @@ class BroadcastsController < ApplicationController
 
   end
 
+  def broadcasting
+  end
+
   def new
     @broadcaster = User.new
   end
