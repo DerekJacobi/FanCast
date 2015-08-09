@@ -1,0 +1,26 @@
+
+<h1>Broadcasters</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Location</th>
+      <th>Twitter</th>
+      <th>Facebook</th>
+      <th>Instagram</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><a href="/users/<%=user.id%>"><%= user.name %></a></td>
+        <td><%= user.location %></td>
+        <td><%= user.twitter %></td>
+        <td><%= user.facebook %></td>
+        <td><%= user.instagram %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
