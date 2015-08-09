@@ -43,7 +43,7 @@
               <%= f.hidden_field :user_id, value: current_user.id %>
               <%= f.hidden_field :active, value: false  %>
               <span class="mdl-layout-title">
-                <button class="team-follow-button" id="follow" type="submit" name="action">UNFOLLOW the <%= @team %></button>
+                <button class="team-follow-button" id="follow" type="submit" name="action">Unfollow the <%= @team %></button>
               </span>
             <% end %>
         <% elsif follow.team == @team && follow.active == false %>
@@ -53,7 +53,7 @@
                 <%= f.hidden_field :user_id, value: current_user.id %>
                 <%= f.hidden_field :active, value: true  %>
                 <span class="mdl-layout-title">
-                  <button class="team-follow-button" id="follow" type="submit" name="action">FOLLOW the <%= @team %></button>
+                  <button class="team-follow-button" id="follow" type="submit" name="action">Follow the <%= @team %></button>
                 </span>
             <% end %>
         <% end %>
@@ -65,7 +65,7 @@
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :active, value: true  %>
           <span class="mdl-layout-title">
-            <button class="team-follow-button" id="follow" type="submit" name="action">FOLLOW the <%= @team %></button>
+            <button class="team-follow-button" id="follow" type="submit" name="action">Follow the <%= @team %></button>
           </span>
       <% end %>
     <% end %>
