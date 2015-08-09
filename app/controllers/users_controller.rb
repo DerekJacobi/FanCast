@@ -4,13 +4,16 @@ class UsersController < ApplicationController
 
 
   def index
-    @users = User.all
+    @users = User.broadcaster.all
   end
 
   def show
     @users = User.all
     if current_user
-      @followteams = current_user.follow_teams.all
+      @followteams = current_user.follows.all
+      @followUsers = current_user.follows.all
+      @followUser = current_user.follows.find_by(id:@user)
+      @followUserNew = FollowTeam.new
     end
   end
 

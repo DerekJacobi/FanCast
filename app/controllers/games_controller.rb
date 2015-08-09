@@ -32,9 +32,8 @@ class GamesController < ApplicationController
         @followTeam = current_user.follow_teams.find_by(team:@team)
         @followTeamNew = FollowTeam.new
     end
-    
-  end
 
+  end
 
   private
 
