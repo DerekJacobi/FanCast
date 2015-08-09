@@ -1,0 +1,56 @@
+<div class="panel panel-info">
+    <div class="panel-heading">
+      <div class="panel-title">Sign Up</div>
+    </div>
+    <div class="panel-body" >
+
+      <%= form_for @user,:html => {:class => "form-horizontal"} do |f|%>
+
+            <input value="broadcaster" type="hidden" name="user[role]" id="user_role">
+            <input type="hidden" name="_method" value="patch">
+
+            <div class="form-group">
+                <label for="user_location" data-error="wrong" data-success="right" class="col-md-3 control-label">Loccation</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="user[location]" id="user_location" class="validate" placeholder="Location">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="user_mixlr" class="col-md-3 control-label">Mixlr</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="user[mixlr]" id="user_mixlr" placeholder="Mixlr ID">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="user_facebook" class="col-md-3 control-label">Facebook</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="user[facebook]" id="user_facebook" placeholder="Facebook">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="user_twitter" class="col-md-3 control-label">Twitter</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="user[twitter]" id="user_twitter" placeholder="Twitter">
+                </div>
+            </div>
+
+            <div class="form-group">
+              <label for="user_instagram" class="col-md-3 control-label">Instagram</label>
+                <div class="col-md-9">
+                    <input type="text" class="form-control" name="user[instagram]" id="user_instagram" placeholder="Instagram">
+                </div>
+            </div>
+            <!-- Button -->
+            <div class="form-group">
+
+            <div class="col-md-offset-6 col-md-9">
+                  <button for="signupform" id="btn-signup" type="submit" name="action" class="btn btn-info"><i class="icon-hand-right"></i>Become a Broadcaster</button>
+              </div>
+            </div>
+
+    </div>
+      <%end%>
+</div>
