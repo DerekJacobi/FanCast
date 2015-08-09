@@ -2,12 +2,14 @@
 <div class="user-main">
   <div class="user-left-col">
     <div class="user-left-top">
-      <h3>Welcome <%= @current_user.name%>!</h3>
+      <h3>Welcome <%= current_user.name%>!</h3>
     </div>
     <div class="user-left-bottom">
       <h4>Teams You Follow:</h4>
-      <% @current_user.follow_teams.each do |team| %>
-      <%= team.team %></br>
+      <% @followteams.each do |followteam| %>
+      <%if followteam.user_id == current_user.id && followteam.active == true %>
+        <a href="/games/nfl/<%=followteam.team %>""><%=followteam.team %></a></br>
+        <% end %>
       <% end %>
     </div>
   </div>
@@ -22,7 +24,6 @@
     </div>
   </div>
 </div>
-
 
 <!--
   Below we include the Login Button social plugin. This button uses

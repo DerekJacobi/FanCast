@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150806193146) do
   create_table "follow_teams", force: :cascade do |t|
     t.integer  "user_id"
     t.string   "team"
+    t.boolean  "active"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,9 +39,9 @@ ActiveRecord::Schema.define(version: 20150806193146) do
   create_table "follows", force: :cascade do |t|
     t.integer  "follower_id"
     t.integer  "user_id"
-    t.boolean  "active",      default: true
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "active"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   add_index "follows", ["user_id"], name: "index_follows_on_user_id", using: :btree

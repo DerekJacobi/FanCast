@@ -61,6 +61,9 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li><a href="/games">All Sports</a></li>
+          <% if current_user && current_user.listener? %>
+            <li><%= link_to(current_user.name, user_path(current_user.id)) %></li>
+          <%end%>
            <% if current_user == nil %>
             <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal">Log in</a></li>
             <li><a class="active" data-toggle="modal" style="cursor:pointer;" data-target="#myModal1">Sign Up</a></li>

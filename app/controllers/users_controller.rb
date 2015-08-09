@@ -9,6 +9,9 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
+    if current_user
+      @followteams = current_user.follow_teams.all
+    end
   end
 
 
@@ -33,10 +36,8 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def current_user
-      @current_user ||= User.find(session[:current_user_id]) if session[:current_user_id]
-    end
-    
+
+
   def set_user
     if User.exists?(params[:id])
       @user = User.find(params[:id])

@@ -20,13 +20,29 @@ class GamesController < ApplicationController
     elsif en3[0]["away"] == @team_id
       @next_opponent =  en3[0]["home"]
     end
-      @stadium = en3[0]["venue"]["name"]
-      @city = en3[0]["venue"]["city"]
-      @state = en3[0]["venue"]["state"]
-      @capacity = en3[0]["venue"]["capacity"]
-      @surface = en3[0]["venue"]["surface"]
-      @type = en3[0]["venue"]["type"]
-      @nextgamedate = en3[0]["scheduled"].to_s[6..9]
+    @stadium = en3[0]["venue"]["name"]
+    @city = en3[0]["venue"]["city"]
+    @state = en3[0]["venue"]["state"]
+    @capacity = en3[0]["venue"]["capacity"]
+    @surface = en3[0]["venue"]["surface"]
+    @type = en3[0]["venue"]["type"]
+    @nextgamedate = en3[0]["scheduled"].to_s[6..9]
+    if current_user
+      @followteams = current_user.follow_teams.all
+      @followteams.each do |followteam|
+        if followteam.team == @team
+          if  followteam.active == false
+            @follow = true
+            @followedteams = followteam
+          elsif followteam.active == true
+            @follow = false
+            @followedteams = followteam
+          end
+        else
+          @follow = 1
+        end
+      end
+    end
   end
 
 
