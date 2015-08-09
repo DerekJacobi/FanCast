@@ -1,3 +1,19 @@
 // Place all the styles related to the broadcasts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.broadcast-home {
+  background-image: none;
+}
+
+.broadcast {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  height: 90%;
+}
+
+iframe {
+width: 46% !important;
+margin-right: 2%
+}
