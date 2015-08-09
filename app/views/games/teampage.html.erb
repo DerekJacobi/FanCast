@@ -80,7 +80,7 @@
 <% if current_user && @follow == 1%>
   <script>
     $(document).ready(function(){
-      $(".team-follow-button").bind("click", function(){
+      $(".team-follow-button").click(function(){
         console.log('follow is 1');
         <% @followedteams = FollowTeam.new %>
         <% @followedteams.user_id = current_user.id %>
@@ -93,7 +93,7 @@
   <% elsif @follow == true %>
   <script>
     $(document).ready(function(){
-      $(".team-follow-button").bind("click", function(){
+      $(".team-follow-button").click( function(){
         console.log('follow is true');
         <% @followteams.active = true %>
         <% @followteams.save %>
@@ -104,7 +104,7 @@
   <% elsif @follow == false %>
   <script>
     $(document).ready(function(){
-      $(".team-follow-button").bind("click", function(){
+      $(".team-follow-button").click(function(){
         console.log('follow is false');
         <% @followteams.active = false %>
         <% @followteams.save %>
