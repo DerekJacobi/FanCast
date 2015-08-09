@@ -32,13 +32,13 @@
     <header class="mdl-layout__header">
       <div class="mdl-layout__header-row">
         <!-- Title -->
-        <% if @follow == true %>
+        <% if @checkfollow == false %>
         <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button">Follow the <%= @team %></button>
         </span>
-        <% elsif @follow == false %>
+        <% elsif @checkfollow == true %>
         <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button">Unfollow the <%= @team %></button>
         </span>
-        <% elsif @follow == 1 %>
+        <% elsif @checkfollow == 1 %>
         <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button">Follow the <%= @team %></button>
         </span>
         <% end %>
@@ -76,40 +76,36 @@
     </main>
   </div>
 </div>
+  <% if current_user && @checkfollow == 1%>
+    <script>
 
-<% if current_user && @follow == 1%>
-  <script>
-    $(document).ready(function(){
       $(".team-follow-button").click(function(){
         console.log('follow is 1');
-        <% @followedteams = FollowTeam.new %>
-        <% @followedteams.user_id = current_user.id %>
-        <% @followedteams.team = @team %>
-        <% @followedteams.active = true %>
-        <% @followedteams.save %>
+        <% @followteams.user_id = current_user.id %>
+        <% @followteams.team = @team %>
+        <% @followteams.active = true %>
+        <% @followteams.save %>
+
       });
-    });
-  </script>
-  <% elsif @follow == true %>
+    </script>
+
+  <% elsif @checkfollow == false %>
   <script>
-    $(document).ready(function(){
       $(".team-follow-button").click( function(){
         console.log('follow is true');
         <% @followteams.active = true %>
         <% @followteams.save %>
 
+
       });
-    });
   </script>
-  <% elsif @follow == false %>
-  <script>
-    $(document).ready(function(){
+  <% elsif @checkfollow == true %>
+    <script>
       $(".team-follow-button").click(function(){
         console.log('follow is false');
         <% @followteams.active = false %>
         <% @followteams.save %>
-
       });
-    });
-  </script>
+    </script>
+
 <% end %>

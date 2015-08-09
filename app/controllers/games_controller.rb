@@ -31,11 +31,11 @@ class GamesController < ApplicationController
       @followteams = current_user.follow_teams.find_by(team:@team)
           if @followteams == nil
             @followteams = FollowTeam.new
-            @follow = 1
+            @checkfollow = 1
           elsif @followteams.active == true
-            @follow = false
+            @checkfollow = true
           elsif @followteams.active == false
-          @follow = true
+            @checkfollow = false
         end
       end
 
