@@ -17,7 +17,7 @@
       </div>
       <div class="user-right-col">
         <div class="user-right-top">
-          <h4>Upcoming Broadcasts</h4>
+          <h4>Upcoming Broadcasts from those you follow:</h4>
 
         </div>
         <div class="user-right-bottom">
@@ -48,7 +48,7 @@
 
         </div>
         <div class="user-right-bottom">
-          <h4>Broadcasters You Follow:</h4>
+          <h4>Your followers:</h4>
         </div>
       </div>
     </div>
@@ -63,9 +63,9 @@
           <h3><%= @user.name%>'s page!</h3>
         </div>
         <div class="user-left-bottom">
-          <h4>Teams You Follow:</h4>
+          <h4>Teams <%=@user%> Follows:</h4>
           <% @followteams.each do |followteam| %>
-          <%if followteam.user_id == current_user.id && followteam.active == true %>
+          <%if followteam.user_id == @user.id && followteam.active == true %>
             <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
           <% end %>
@@ -73,11 +73,11 @@
       </div>
       <div class="user-right-col">
         <div class="user-right-top">
-          <h4>Upcoming Broadcasts</h4>
+          <h4>Their Upcoming Broadcasts</h4>
 
         </div>
         <div class="user-right-bottom">
-          <h4>Broadcasters You Follow:</h4>
+          <h4>Broadcasters <%=@user%> Follows:</h4>
         </div>
       </div>
     </div>
@@ -86,13 +86,13 @@
     <div class="user-main">
       <div class="user-left-col">
         <div class="user-left-top">
-          <h3>Welcome to <%= current_user.name%>'s page'!</h3>
+          <h3>Welcome to <%= current_user.name%>'s Broadcasting page!</h3>
 
         </div>
         <div class="user-left-bottom">
-          <h4>Teams You Follow:</h4>
+          <h4>Teams They Follow:</h4>
           <% @followteams.each do |followteam| %>
-          <%if followteam.user_id == current_user.id && followteam.active == true %>
+          <%if followteam.user_id == @user.id && followteam.active == true %>
             <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
           <% end %>
@@ -100,11 +100,11 @@
       </div>
       <div class="user-right-col">
         <div class="user-right-top">
-          <h4>Your Upcoming Broadcasts</h4>
+          <h4>Their Upcoming Broadcasts</h4>
 
         </div>
         <div class="user-right-bottom">
-          <h4>Broadcasters You Follow:</h4>
+          <h4>Their followers:</h4>
         </div>
       </div>
     </div>

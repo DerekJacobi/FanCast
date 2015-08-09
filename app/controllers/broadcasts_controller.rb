@@ -75,4 +75,5 @@ class BroadcastsController < ApplicationController
 
     def broadcaster_params
       params.require(:broadcast).permit(:game_id, :user_id)
+    end
 end
