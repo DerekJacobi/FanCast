@@ -38,7 +38,6 @@ class GamesController < ApplicationController
           @follow = true
         end
       end
-
   end
 
 
