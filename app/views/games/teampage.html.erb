@@ -70,23 +70,6 @@
       <% end %>
     <% end %>
 
-<!--
-
-        <% if @checkfollow == false %>
-          <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button">Follow the <%= @team %></button>
-          </span>
-
-        <% elsif @checkfollow == true %>
-          <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button">Unfollow the <%= @team %></button>
-          </span>
-
-
-        <% elsif @checkfollow == 1 %>
-          <%= form_for @testfollowteams do |f| %>
-          <span class="mdl-layout-title"><%= @team %> <button class="team-follow-button" type="submit" name="action">Follow the <%= @team %></button>
-          </span>
-          <% end %>
-        <% end %> -->
 
       </div>
       <!-- Tabs -->
@@ -122,26 +105,3 @@
     </main>
   </div>
 </div>
-
-        <% @followteams.user_id = current_user.id %>
-        <% @followteams.team = @team %>
-        <% @followteams.active = true %>
-
-      });
-    </script>
-
-  <% elsif @checkfollow == false %>
-  <script>
-      $(".team-follow-button").click( function(){
-        console.log('follow is true');
-        <% @followteams.active = true %>
-      });
-  </script>
-  <% elsif @checkfollow == true %>
-    <script>
-      $(".team-follow-button").click(function(){
-        console.log('follow is false');
-        <% @followteams.active = false %>
-      });
-    </script>
-<% end %> -->

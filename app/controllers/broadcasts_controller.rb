@@ -5,7 +5,6 @@ class BroadcastsController < ApplicationController
   def index
     @broadcasters = broadcaster.all
     @broadcasters_user = User.broadcaster
-    @posts = Post.all
   end
 
 
@@ -20,11 +19,8 @@ class BroadcastsController < ApplicationController
 
   end
 
-  def broadcasting
-  end
-
   def new
-    @broadcaster = User.new
+    @broadcaster = Broadcast.new
   end
 
   def edit
@@ -33,7 +29,7 @@ class BroadcastsController < ApplicationController
 
 
   def create
-    @broadcaster = User.new(broadcaster_params)
+    @broadcaster = Broadcast.new(broadcaster_params)
     respond_to do |format|
       if @broadcaster.save
         format.html { redirect_to @broadcaster, notice: 'broadcaster was successfully created.' }
@@ -78,6 +74,5 @@ class BroadcastsController < ApplicationController
     end
 
     def broadcaster_params
-      params.require(:user).permit(:username, :password, :location, :email, :location, :mixlr, :role, :facebook, :twitter, :instagram, :broadcast_id, :event_id, :provider, :uid, :name, :image, :oauth_token, :oauth_expires_at, :image)
-    end
+      params.require(:broadcast).permit(:game_id, :user_id)
 end
