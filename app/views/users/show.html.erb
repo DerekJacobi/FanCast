@@ -1,30 +1,115 @@
+<% if current_user && current_user.id == @user.id %>
+  <% if current_user.listener? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3>Welcome <%= current_user.name%>!</h3>
+          <%= link_to 'Become a broadcaster', edit_user_path(@user) %>
+        </div>
+        <div class="user-left-bottom">
+          <h4>Teams You Follow:</h4>
+          <% @followteams.each do |followteam| %>
+          <%if followteam.user_id == current_user.id && followteam.active == true %>
+            <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-right-col">
+        <div class="user-right-top">
+          <h4>Upcoming Broadcasts</h4>
 
-<div class="user-main">
-  <div class="user-left-col">
-    <div class="user-left-top">
-      <h3>Welcome <%= current_user.name%>!</h3>
-      <%= link_to 'Become a broadcaster', edit_user_path(@user) %>
+        </div>
+        <div class="user-right-bottom">
+          <h4>Broadcasters You Follow:</h4>
+        </div>
+      </div>
     </div>
-    <div class="user-left-bottom">
-      <h4>Teams You Follow:</h4>
-      <% @followteams.each do |followteam| %>
-      <%if followteam.user_id == current_user.id && followteam.active == true %>
-        <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
-  <div class="user-right-col">
-    <div class="user-right-top">
-      <h4>Upcoming Broadcasts</h4>
 
-    </div>
-    <div class="user-right-bottom">
-      <h4>Broadcasters You Follow:</h4>
+  <% elsif current_user.broadcaster? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3>Welcome <%= current_user.name%>!</h3>
+          <%= link_to 'Start a broadcast!', new_broadcast_path(@user) %>
+        </div>
+        <div class="user-left-bottom">
+          <h4>Teams You Follow:</h4>
+          <% @followteams.each do |followteam| %>
+          <%if followteam.user_id == current_user.id && followteam.active == true %>
+            <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-right-col">
+        <div class="user-right-top">
+          <h4>Your Upcoming Broadcasts</h4>
 
+        </div>
+        <div class="user-right-bottom">
+          <h4>Broadcasters You Follow:</h4>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+
+
+    <% end %>
+<% elsif  current_user && current_user.id != @user.id %>
+  <% if @user.listener? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3><%= @user.name%>'s page!</h3>
+        </div>
+        <div class="user-left-bottom">
+          <h4>Teams You Follow:</h4>
+          <% @followteams.each do |followteam| %>
+          <%if followteam.user_id == current_user.id && followteam.active == true %>
+            <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-right-col">
+        <div class="user-right-top">
+          <h4>Upcoming Broadcasts</h4>
+
+        </div>
+        <div class="user-right-bottom">
+          <h4>Broadcasters You Follow:</h4>
+        </div>
+      </div>
+    </div>
+
+  <% elsif @user.broadcaster? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3>Welcome to <%= current_user.name%>'s page'!</h3>
+          
+        </div>
+        <div class="user-left-bottom">
+          <h4>Teams You Follow:</h4>
+          <% @followteams.each do |followteam| %>
+          <%if followteam.user_id == current_user.id && followteam.active == true %>
+            <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-right-col">
+        <div class="user-right-top">
+          <h4>Your Upcoming Broadcasts</h4>
+
+        </div>
+        <div class="user-right-bottom">
+          <h4>Broadcasters You Follow:</h4>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 
 <!--
   Below we include the Login Button social plugin. This button uses
@@ -36,7 +121,7 @@
 
 <div class = "content">
   Testing facebook
-  <div>
+  <div
     class="fb-like"
     data-share="true"
     data-width="450"
