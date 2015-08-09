@@ -28,16 +28,21 @@ class GamesController < ApplicationController
     @type = en3[0]["venue"]["type"]
     @nextgamedate = en3[0]["scheduled"].to_s[6..9]
     if current_user
-      @followteams = current_user.follow_teams.find_by(team:@team)
-          if @followteams == nil
-            @followteams = FollowTeam.new
-            @checkfollow = 1
-          elsif @followteams.active == true
-            @checkfollow = true
-          elsif @followteams.active == false
-            @checkfollow = false
-        end
-      end
+        @followTeams = current_user.follow_teams.all
+        @followTeam = current_user.follow_teams.find_by(team:@team)
+        @followTeamNew = FollowTeam.new
+    end
+    # if current_user
+    #   @followteams = current_user.follow_teams.find_by(team:@team)
+    #       if @followteams == nil
+    #         @followteams = FollowTeam.new
+    #         @checkfollow = 1
+    #       elsif @followteams.active == true
+    #         @checkfollow = true
+    #       elsif @followteams.active == false
+    #         @checkfollow = false
+    #     end
+    #   end
 
   end
 
