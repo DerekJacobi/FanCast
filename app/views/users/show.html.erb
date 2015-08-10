@@ -89,7 +89,7 @@
           <h3>Welcome to <%= current_user.name%>'s Broadcasting page!</h3>
           <% if @followUser %>
             <% @followUsers.each do |follow| %>
-              <% if follow.user_id == current_user.id && follow.active == true %>
+              <% if follow.follower_id == @user.id && follow.active == true %>
                   <%= form_for @followUser do |f| %>
                     <input type="hidden" name="_method" value="patch">
                     <%= f.hidden_field :user_id, value: current_user.id %>
@@ -99,7 +99,7 @@
                       <button class="team-follow-button"  type="submit" name="action">Unfollow <%= @user.name %></button>
                     </span>
                   <% end %>
-              <% elsif follow.user_id == current_user.id && follow.active == false %>
+              <% elsif follow.follower_id == @user.id && follow.active == false %>
                   <%= form_for @followUser do |f| %>
                       <input type="hidden" name="_method" value="patch">
                       <%= f.hidden_field :user_id, value: current_user.id %>
