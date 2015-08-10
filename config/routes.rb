@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   get 'games/:sport/:team' => 'games#teampage'
 
-  get 'broadcasts/:user_id/makebroadcast' => 'broadcasts#makebroadcast'
+  get 'broadcasts/:user_id/schedulebroadcast' => 'broadcasts#schedulebroadcast'
 
   get 'broadcasts/:user_id/:broadcast_id' => 'broadcasts#broadcasting'
 
