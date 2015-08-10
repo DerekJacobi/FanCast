@@ -8,9 +8,9 @@
         </div>
         <div class="user-left-bottom">
           <h4>Teams You Follow:</h4>
-          <% @followUsers.each do |followUser| %>
-          <%if followUser.user_id == current_user.id && followUser.active == true %>
-            <a href="/games/nfl/<%=followUser.team %>"><%=followUser.team %></a></br>
+          <% @followteams.each do |followteam| %>
+            <%if followteam.user_id == current_user.id && followteam.active == true %>
+             <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
           <% end %>
         </div>
@@ -31,13 +31,13 @@
       <div class="user-left-col">
         <div class="user-left-top">
           <h3>Welcome <%= current_user.name%>!</h3>
-          <a href="/broadcasts/<%=@user.id%>/new">Start a Broadcast!</a>
+          <a href=“/broadcasts/create">Start a Broadcast!</a>
         </div>
         <div class="user-left-bottom">
           <h4>Teams You Follow:</h4>
-          <% @followUsers.each do |followUser| %>
-          <%if followUser.user_id == current_user.id && followUser.active == true %>
-            <a href="/games/nfl/<%=followUser.team %>"><%=followUser.team %></a></br>
+            <% @followteams.each do |followteam| %>
+                 <%if followteam.user_id == @user.id && followteam.active == true %>
+                 <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
           <% end %>
         </div>
@@ -64,9 +64,9 @@
         </div>
         <div class="user-left-bottom">
           <h4>Teams <%=@user%> Follows:</h4>
-          <% @followUsers.each do |followUser| %>
-          <%if followUser.user_id == @user.id && followUser.active == true %>
-            <a href="/games/nfl/<%=followUser.team %>"><%=followUser.team %></a></br>
+           <% @followteams.each do |followteam| %>
+             <%if followteam.user_id == @user.id && followteam.active == true %>
+                <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
           <% end %>
         </div>
@@ -92,18 +92,18 @@
               <% if follow.user_id == @user.id && follow.active == true %>
                   <%= form_for @followUser do |f| %>
                     <input type="hidden" name="_method" value="patch">
-                    <%= f.hidden_field :user_id, value: @user.id %>
-                    <%= f.hidden_field :follower_id, value: current_user.id %>
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :follower_id, value: @user.id %>
                     <%= f.hidden_field :active, value: false  %>
                     <span class="mdl-layout-title">
                       <button class="team-follow-button" id="follow" type="submit" name="action">Unfollow <%= @user.name %></button>
                     </span>
                   <% end %>
-              <% elsif follow.team == @team && follow.active == false %>
+              <% elsif follow.user_id == @user.id && follow.active == false %>
                   <%= form_for @followUser do |f| %>
                       <input type="hidden" name="_method" value="patch">
-                      <%= f.hidden_field :user_id, value: @user.id %>
-                      <%= f.hidden_field :follower_id, value: current_user.id %>
+                      <%= f.hidden_field :user_id, value: current_user.id %>
+                      <%= f.hidden_field :follower_id, value: @user.id %>
                       <%= f.hidden_field :active, value: true  %>
                       <span class="mdl-layout-title">
                         <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
@@ -114,9 +114,9 @@
 
           <% else %>
             <%= form_for @followUserNew do |f| %>
-              <%= f.hidden_field :user_id, value: @user.id %>
-              <%= f.hidden_field :follower_id, value: current_user.id %>
-              <%= f.hidden_field :active, value: true  %>
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :follower_id, value: @user.id %>
+            <%= f.hidden_field :active, value: true  %>
                 <span class="mdl-layout-title">
                   <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
                 </span>
@@ -125,8 +125,8 @@
         </div>
         <div class="user-left-bottom">
           <h4>Teams They Follow:</h4>
-          <% @followUsers.each do |followUser| %>
-          <%if followUser.user_id == @user.id && followUser.active == true %>
+          <% @followteams.each do |followTeam| %>
+          <%if followTeam.user_id == @user.id && followUser.active == true %>
             <a href="/games/nfl/<%=followUser.team %>"><%=followUser.team %></a></br>
             <% end %>
           <% end %>
@@ -150,10 +150,8 @@
   the JavaScript SDK to present a graphical Login button that triggers
   the FB.login() function when clicked.
 -->
-<!--Mixlr link  -->
-<!-- <iframe src="https://mixlr.com/users/3966051/embed" width="40%" height="180px" scrolling="no" frameborder="no" marginheight="0" marginwidth="0"></iframe> -->
 
-<div class = "content">
+<!-- <div class = "content">
   Testing facebook
   <div
     class="fb-like"
@@ -161,4 +159,4 @@
     data-width="450"
     data-show-faces="true">
   </div>
-</div>
+</div> -->
