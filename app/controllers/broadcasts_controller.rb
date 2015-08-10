@@ -3,8 +3,6 @@ class BroadcastsController < ApplicationController
 
 
   def index
-    @broadcasters = broadcaster.all
-    @broadcasters_user = User.broadcaster
   end
 
 
@@ -19,8 +17,6 @@ class BroadcastsController < ApplicationController
 
   end
 
-  def create
-  end
 
   def new
     @broadcaster = Broadcast.new
