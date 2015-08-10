@@ -1,5 +1,5 @@
 class BroadcastsController < ApplicationController
-  before_action :set_broadcaster, only: [:show, :edit, :update, :destroy]
+  before_action :set_broadcaster, only: [:show, :edit, :update, :destroy, :user_id]
 
   def index
   end
@@ -13,7 +13,12 @@ class BroadcastsController < ApplicationController
         @follow = current_user.follows.find_by(user_id:@broadcaster.id)
       end
       @followNew = Follow.new
+      @findbroadcast = Broadcast.find_by(id:broadcast_id)
+      @broadcaster = User.find_by(id:@findbroadcast.user.to_i)
+  end
 
+  def broadcasting
+    @broadcaster = User.find_by(id:params[:user_id])
   end
 
 
