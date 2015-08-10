@@ -45,7 +45,7 @@ class BroadcastsController < ApplicationController
         format.json { render json: @broadcast.errors, status: :unprocessable_entity }
       end
     end
-
+    fail
   end
 
   # def update
