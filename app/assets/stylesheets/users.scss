@@ -83,6 +83,7 @@
   border: 1px solid black;
 }
 h1{
+  text-align: center !important;
   color:white !important;
 }
 th {
@@ -102,6 +103,7 @@ td {
 }
 
 table {
+    margin: 0 auto !important;
     display: table !important;
     border-collapse: separate !important;
     border-spacing: 12px !important;
