@@ -18,10 +18,19 @@
       <div class="user-right-col">
         <div class="user-right-top">
           <h4>Upcoming Broadcasts from those you follow:</h4>
-
+          <% @followUsers.each do |f| %>
+            <% @broadcasts.each do |b| %>
+              <%if b.user_id == f.follower.id && f.active == true %>
+               <a href="/broadcasts/<%=f.id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %></a></br>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
         <div class="user-right-bottom">
           <h4>Broadcasters You Follow:</h4>
+          <% @followUsers.each do |f| %>
+             <a href="/users/<%=f.follower_id %>"><%=User.find_by(id:f.follower_id).name %></a></br>
+          <% end %>
         </div>
       </div>
     </div>
