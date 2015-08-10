@@ -1,7 +1,6 @@
 class BroadcastsController < ApplicationController
   before_action :set_broadcaster, only: [:show, :edit, :update, :destroy]
 
-
   def index
   end
 
@@ -26,17 +25,21 @@ class BroadcastsController < ApplicationController
     @broadcaster_back = broadcaster.find_by(id:current_user.id)
   end
 
-  def makebroadcast
+  def schedulebroadcast
     @nfl = Schedule.first.content['weeks'][0]['games']
     @current_user
   end
 
   def create
-    @broadcast = Broadcast.new(broadcast_params)
+    @broadcast = Broadcast.new
+    @broadcast.user = params[:user_id]
+    @broadcast.game = params[:game_id]
+    @broadcast.home = params[:home]
+    @broadcast.away = params[:away]
     respond_to do |format|
       if @broadcast.save
-        format.html { redirect_to @broadcast, notice: 'broadcaster was successfully created.' }
-        format.json { render :show, status: :created, location: @broadcast }
+        format.html { redirect_to current_user, notice: 'broadcast was successfully created.' }
+        format.json { render current_user, status: :created, location: @broadcast }
       else
         format.html { render :new }
         format.json { render json: @broadcast.errors, status: :unprocessable_entity }
@@ -77,7 +80,7 @@ class BroadcastsController < ApplicationController
     end
 
     def broadcast_params
-      params.permit(:game_id, :user_id)
+      params.require(:broadcast).permit(:user, :game, :home, :away)
     end
 
 end

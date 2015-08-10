@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 20150806193146) do
   create_table "broadcasts", force: :cascade do |t|
     t.string   "user"
     t.string   "game"
+    t.string   "away"
+    t.string   "home"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
