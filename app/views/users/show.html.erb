@@ -21,7 +21,7 @@
           <% @followUsers.each do |f| %>
             <% @broadcasts.each do |b| %>
               <%if b.user == f.follower.id.to_s && f.active == true %>
-               <a href="/broadcasts/<%=f.id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
+               <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
               <% end %>
             <% end %>
           <% end %>
