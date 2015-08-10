@@ -57,13 +57,23 @@
 }
 
 .divison {
-  background-color: blue !important;
+  background-color: black !important;
+  color: white !important;
 }
 
 // For Individual Team Pages
 
 .main-team {
   display: flex;
+}
+
+
+.mdl-layout__tab-ripple-container{
+  color: white !important;
+}
+
+.mdl-ripple.is-animating{
+  color: white !important;
 }
 
 .team-logo {
@@ -87,7 +97,7 @@
 .team-follow-button{
   -webkit-border-radius: 18;
   -moz-border-radius: 18;
-  border-radius: 18px;
+  border-radius: 8px;
   border: 0 !important;
   color: #ffffff;
   font-size: 16px;
@@ -110,7 +120,8 @@
   .demo-card-event.mdl-card {
     width: 256px;
     height: 256px;
-    background: #3E4EB8;
+    background: black;
+    opacity: 0.9 !important;
   }
   .demo-card-event > .mdl-card__actions {
     border-color: rgba(255, 255, 255, 0.2);
@@ -137,11 +148,15 @@
 }
 
 .mdl-layout__header-row {
-  background-color: #8D8E8E !important;
+  background-color: #a7a2a9 !important;
+  opacity: .9 !important;
+  color: black !important;
 }
 
 .mdl-layout__content {
-    background-color: #52D1DC !important;
+  background-color: white !important;
+  opacity: .9 !important;
+  color: black !important;
 }
 .teampage {
   display: flex;

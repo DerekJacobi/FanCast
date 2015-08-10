@@ -5,9 +5,17 @@
   <thead>
     <tr>
       <th>Name</th>
+      <th></th>
+      <th></th>
       <th>Location</th>
+      <th></th>
+      <th></th>
       <th>Twitter</th>
+      <th></th>
+      <th></th>
       <th>Facebook</th>
+      <th></th>
+      <th></th>
       <th>Instagram</th>
     </tr>
   </thead>
@@ -16,9 +24,17 @@
     <% @users.each do |user| %>
       <tr>
         <td><a href="/users/<%=user.id%>"><%= user.name %></a></td>
+        <td></td>
+        <td></td>
         <td><%= user.location %></td>
+        <td></td>
+        <td></td>
         <td><a href="/users/<%=user.twitter%>"><i class="fa fa-twitter-square"></i></a></td>
+        <td></td>
+        <td></td>
         <td><a href="/users/<%=user.facebook%>"><i class="fa fa-facebook-square"></i></a></td>
+        <td></td>
+        <td></td>
         <td><a href="/users/<%=user.instagram%>"><i class="fa fa-instagram"></i></a></td>
       </tr>
     <% end %>

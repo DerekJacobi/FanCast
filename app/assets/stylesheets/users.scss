@@ -82,3 +82,34 @@
   margin-top: 1%;
   border: 1px solid black;
 }
+h1{
+  text-align: center !important;
+  color:white !important;
+}
+th {
+    padding: 15px 5px !important;
+    display: table-cell !important;
+    text-align: left !important;
+    vertical-align: middle !important;
+    border-radius: 2px !important;
+}
+
+td {
+  padding: 15px 5px !important;
+  display: table-cell !important;
+  text-align: left !important;
+  vertical-align: middle !important;
+  border-radius: 2px !important;
+}
+
+table {
+    margin: 0 auto !important;
+    display: table !important;
+    border-collapse: separate !important;
+    border-spacing: 12px !important;
+    color: white !important;
+}
+
+#sign_in{
+  color : white !important;
+}
