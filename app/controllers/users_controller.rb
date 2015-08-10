@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @users = User.all
     @followteams = current_user.follow_teams.all
     @followUsers = current_user.follows.all
-    @followUser = current_user.follows.find_by(user_id: current_user.id)
+    @followUsersUpdate = current_user.follows.all
+    @followUser = current_user.follows.find_by(follower_id:@user.id)
     @followUserNew = Follow.new
   end
 
