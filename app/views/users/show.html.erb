@@ -54,8 +54,8 @@
       <div class="user-right-col">
         <div class="user-right-top">
           <h4>Your Upcoming Broadcasts</h4>
-          <% @usersbroadcasts.each do |broadcast| %>
-          <%= broadcast["away"] %> @ <%= broadcast["home"] %>
+          <% @usersbroadcasts.each do |b| %>
+          <a href="/broadcasts/<%=current_user.id%>/<%=b.id %>"><%= b.away %> @ <%= b.home %></a></br>
         </br>
           <% end %>
         </div>
@@ -91,7 +91,13 @@
       <div class="user-right-col">
         <div class="user-right-top">
           <h4>Their Upcoming Broadcasts</h4>
-
+            <% @followUsers.each do |f| %>
+              <% @broadcasts.each do |b| %>
+                <%if b.user == f.follower.id.to_s && f.active == true %>
+                 <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
+                <% end %>
+              <% end %>
+            <% end %>
         </div>
         <div class="user-right-bottom">
           <h4>Broadcasters <%=@user.name%> Follows:</h4>
