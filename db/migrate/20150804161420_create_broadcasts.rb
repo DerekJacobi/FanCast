@@ -1,8 +1,10 @@
 class CreateBroadcasts < ActiveRecord::Migration
   def change
     create_table :broadcasts do |t|
-      t.references :user, index: true, foreign_key: true
-      t.references :game, index: true, foreign_key: true
+      t.string :user
+      t.string :game
+      t.string :away
+      t.string :home
       t.timestamps null: false
     end
   end

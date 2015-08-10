@@ -7,6 +7,7 @@ class CreateGames < ActiveRecord::Migration
       t.string :league
       t.string :home_team
       t.string :away_team
+      t.integer :game_id
 
       t.timestamps null: false
     end

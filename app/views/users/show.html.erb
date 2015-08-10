@@ -40,7 +40,7 @@
       <div class="user-left-col">
         <div class="user-left-top">
           <h3>Welcome <%= current_user.name%>!</h3>
-          <a href="/broadcasts/create">Start a Broadcast!</a>
+          <a href=/broadcasts/<%= current_user.id %>/schedulebroadcast>Schedule a Broadcast!</a>
         </div>
         <div class="user-left-bottom">
           <h4>Teams You Follow:</h4>
@@ -54,7 +54,10 @@
       <div class="user-right-col">
         <div class="user-right-top">
           <h4>Your Upcoming Broadcasts</h4>
-
+          <% @usersbroadcasts.each do |broadcast| %>
+          <%= broadcast["away"] %> @ <%= broadcast["home"] %>
+        </br>
+          <% end %>
         </div>
         <div class="user-right-bottom">
           <h4>Your followers:</h4>

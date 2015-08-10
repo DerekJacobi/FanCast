@@ -19,12 +19,11 @@ Rails.application.routes.draw do
 
   get 'games/:sport/:team' => 'games#teampage'
 
-  get 'broadcasts/:user_id/makebroadcast' => 'broadcasts#makebroadcast'
+  get 'broadcasts/:user_id/schedulebroadcast' => 'broadcasts#schedulebroadcast'
 
   get 'broadcasts/:user_id/:broadcast_id' => 'broadcasts#broadcasting'
 
-
-
+  get 'add/:user_id/:game_id/:away/:home' => 'broadcasts#create'
 
   match 'auth/:provider/callback', to: 'sessions#createfb', via: [:get, :post]
   match 'auth/failure', to: redirect('/'), via: [:get, :post]
