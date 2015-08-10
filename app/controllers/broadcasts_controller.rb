@@ -19,6 +19,9 @@ class BroadcastsController < ApplicationController
 
   end
 
+  def create
+  end
+
   def new
     @broadcaster = Broadcast.new
   end
@@ -28,19 +31,19 @@ class BroadcastsController < ApplicationController
   end
 
 
-  def create
-    @broadcaster = Broadcast.new(broadcaster_params)
-    respond_to do |format|
-      if @broadcaster.save
-        format.html { redirect_to @broadcaster, notice: 'broadcaster was successfully created.' }
-        format.json { render :show, status: :created, location: @broadcaster }
-      else
-        format.html { render :new }
-        format.json { render json: @broadcaster.errors, status: :unprocessable_entity }
-      end
-    end
-
-  end
+  # def create
+  #   @broadcaster = Broadcast.new(broadcaster_params)
+  #   respond_to do |format|
+  #     if @broadcaster.save
+  #       format.html { redirect_to @broadcaster, notice: 'broadcaster was successfully created.' }
+  #       format.json { render :show, status: :created, location: @broadcaster }
+  #     else
+  #       format.html { render :new }
+  #       format.json { render json: @broadcaster.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  #
+  # end
 
   def update
     respond_to do |format|
