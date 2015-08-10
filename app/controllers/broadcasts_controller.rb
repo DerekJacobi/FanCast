@@ -17,9 +17,9 @@ class BroadcastsController < ApplicationController
       @broadcaster = User.find_by(id:@findbroadcast.user.to_i)
   end
 
-def broadcasting
-  @broadcaster = User.find_by(id:params[:user_id])
-end
+  def broadcasting
+    @broadcaster = User.find_by(id:params[:user_id])
+  end
 
 
   def new
