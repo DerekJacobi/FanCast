@@ -20,8 +20,8 @@
           <h4>Upcoming Broadcasts from those you follow:</h4>
           <% @followUsers.each do |f| %>
             <% @broadcasts.each do |b| %>
-              <%if b.user == f.follower.id.to_s && f.active == true %>
-               <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
+                <%if b.user_id == f.follower.id && f.active == true %>
+               <a href="/broadcasts/<%=f.id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %></a></br>
               <% end %>
             <% end %>
           <% end %>
@@ -40,6 +40,8 @@
       <div class="user-left-col">
         <div class="user-left-top">
           <h3>Welcome <%= current_user.name%>!</h3>
+          <a href=/broadcasts/<%= current_user.id %>/1>Go to your booth</a>
+        </br>
           <a href=/broadcasts/<%= current_user.id %>/schedulebroadcast>Schedule a Broadcast!</a>
         </div>
         <div class="user-left-bottom">
