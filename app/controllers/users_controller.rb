@@ -12,6 +12,7 @@ class UsersController < ApplicationController
     @followteams = current_user.follow_teams.all
     @broadcasts = Broadcast.all
     @games = Game.all
+    @followAll = Follow.all
     @followUsers = current_user.follows.all
     @followUsersUpdate = current_user.follows.all
     @followUser = current_user.follows.find_by(follower_id:@user.id)

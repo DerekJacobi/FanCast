@@ -40,7 +40,7 @@
       <div class="user-left-col">
         <div class="user-left-top">
           <h3>Welcome <%= current_user.name%>!</h3>
-          <a href=“/broadcasts/create">Start a Broadcast!</a>
+          <a href="/broadcasts/create">Start a Broadcast!</a>
         </div>
         <div class="user-left-bottom">
           <h4>Teams You Follow:</h4>
@@ -58,6 +58,11 @@
         </div>
         <div class="user-right-bottom">
           <h4>Your followers:</h4>
+            <% @followAll.each do |f| %>
+               <%if f.follower_id == current_user.id && f.active == true %>
+                <a href="/users/<%=f.user_id%>"><%=User.find_by(id:f.user_id).name %></a></br>
+               <% end %>
+          <% end %>
         </div>
       </div>
     </div>
