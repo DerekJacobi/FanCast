@@ -33,7 +33,7 @@
       <div class="mdl-layout__header-row">
         <!-- Title -->
 
-
+    <% if current_user %>
     <% if @followTeam %>
       <% @followTeams.each do |follow| %>
         <% if follow.team == @team && follow.active == true %>
@@ -59,6 +59,7 @@
         <% end %>
       <% end %>
 
+
     <% else %>
       <%= form_for @followTeamNew do |f| %>
           <%= f.hidden_field :team, value: @team %>
@@ -68,6 +69,7 @@
             <button class="team-follow-button" id="follow" type="submit" name="action">Follow the <%= @team %></button>
           </span>
       <% end %>
+    <% end %>
     <% end %>
 
 
