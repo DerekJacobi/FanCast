@@ -13,7 +13,7 @@ class FollowTeamsController < ApplicationController
  	def create
  		@followTeam = FollowTeam.new(follow_team_params)
  		if @followTeam.save
-      flash[:message] = "You are now following this Comedian"
+      flash[:message] = "You are now following this Team"
       redirect_to :back
  		else
       flash[:message] = "Error"
