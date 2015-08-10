@@ -60,6 +60,7 @@
         <ul class="nav navbar-nav">
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          <li><a href="/users">Broadcasters</a></li>
           <li><a href="/games">All Sports</a></li>
           <% if current_user %>
             <li><%= link_to(current_user.name, user_path(current_user.id)) %></li>

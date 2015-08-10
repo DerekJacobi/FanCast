@@ -20,7 +20,7 @@ def update
   @user = User.find_by(id: @follow.user_id)
   respond_to do |format|
     if @follow.update(follow_params)
-      format.html { redirect_to @user, notice: 'Follow was updated' }
+      format.html { redirect_to :back, notice: 'Follow was updated' }
       format.json { render :back, status: :ok, location: @follow }
     else
       format.html { render :edit }
