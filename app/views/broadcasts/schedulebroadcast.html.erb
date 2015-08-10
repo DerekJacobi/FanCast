@@ -5,7 +5,7 @@
     </div>
     <div class="weekly-games">
       <% @nfl.each do |game| %>
-      --<a href="/add/<%= current_user.id%>/<%= game['id']%>"><%= game['away'] %>   @ <%= game['home'] %> <%= game["scheduled"].to_s[6..9] %></a>
+      --<a href="/add/<%= current_user.id%>/<%= game['id']%>/<%= game['away']%>/<%= game['home']%>"><%= game['away'] %>   @ <%= game['home'] %> <%= game["scheduled"].to_s[6..9] %></a>
       </br>
       <% end %>
     </div>

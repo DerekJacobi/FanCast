@@ -34,6 +34,8 @@ class BroadcastsController < ApplicationController
     @broadcast = Broadcast.new
     @broadcast.user = params[:user_id]
     @broadcast.game = params[:game_id]
+    @broadcast.home = params[:home]
+    @broadcast.away = params[:away]
     respond_to do |format|
       if @broadcast.save
         format.html { redirect_to current_user, notice: 'broadcast was successfully created.' }
@@ -78,7 +80,7 @@ class BroadcastsController < ApplicationController
     end
 
     def broadcast_params
-      params.require(:broadcast).permit(:user, :game)
+      params.require(:broadcast).permit(:user, :game, :home, :away)
     end
 
 end
