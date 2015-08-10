@@ -17,14 +17,11 @@ ActiveRecord::Schema.define(version: 20150806193146) do
   enable_extension "plpgsql"
 
   create_table "broadcasts", force: :cascade do |t|
-    t.integer  "user_id"
-    t.integer  "game_id"
+    t.string   "user"
+    t.string   "game"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_index "broadcasts", ["game_id"], name: "index_broadcasts_on_game_id", using: :btree
-  add_index "broadcasts", ["user_id"], name: "index_broadcasts_on_user_id", using: :btree
 
   create_table "follow_teams", force: :cascade do |t|
     t.integer  "user_id"
@@ -53,6 +50,7 @@ ActiveRecord::Schema.define(version: 20150806193146) do
     t.string   "league"
     t.string   "home_team"
     t.string   "away_team"
+    t.integer  "game_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -87,8 +85,6 @@ ActiveRecord::Schema.define(version: 20150806193146) do
     t.datetime "image_updated_at"
   end
 
-  add_foreign_key "broadcasts", "games"
-  add_foreign_key "broadcasts", "users"
   add_foreign_key "follow_teams", "users"
   add_foreign_key "follows", "users"
 end

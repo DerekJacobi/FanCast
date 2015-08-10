@@ -1,4 +1,13 @@
-<div class="container create-broadcast">
-  <h1>Create a Broadcast</h1>
+  <div class="create-broadcast">
+    <h3>Schedule a Broadcast</h3>
+    <div>
+      Select A Game
+    </div>
+    <div class="weekly-games">
+      <% @nfl.each do |game| %>
+      --<a href="/add/<%= current_user.id%>/<%= game['id']%>"><%= game['away'] %>   @ <%= game['home'] %> <%= game["scheduled"].to_s[6..9] %></a>
+      </br>
+      <% end %>
+    </div>
 
-</div>
+  </div>
