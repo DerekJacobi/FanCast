@@ -9,12 +9,10 @@ class UsersController < ApplicationController
 
   def show
     @users = User.all
-    if current_user
-      @followteams = current_user.follows.all
-      @followUsers = current_user.follows.all
-      @followUser = current_user.follows.find_by(id:@user)
-      @followUserNew = FollowTeam.new
-    end
+    @followteams = current_user.follow_teams.all
+    @followUsers = current_user.follows.all
+    @followUser = current_user.follows.find_by(user_id: current_user.id)
+    @followUserNew = Follow.new
   end
 
 
