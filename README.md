@@ -2,6 +2,10 @@
 
 ###To-Do:
 
+####User Drop Down Menu:
+
+Following, Upcoming Events and Settings As their own pages
+
 ####Homepage:
 
 Background Image
