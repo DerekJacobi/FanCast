@@ -1,30 +1,45 @@
-FanCast
+##FanCast
 
-To-Do:
+###To-Do:
 
-Homepage:
+####Homepage:
+
 Background Image
+
 Bottom Banner: Ability to make $ broadcasting
 
-Broadcasters:
+####Broadcasters:
+
 Links to social media from user input, if user has added links
+
 "Top Broadcasters" as title
+
 Background area behind broadcasters information
+
 Social Media Links Colors
 
-Settings:
+####Settings:
+
 Ability to change social media info
+
 Change login into
 
-General:
+####General:
+
 Titles on all pages in tabs
+
 Logo
 
-Broadcast window:
+####Broadcast window:
+
 Tweet area size
+
 link to broadcasters twitter, or sport (nfl, mlb) twitter
+
 Chat area
 
-Future work:
+####Future work:
+
 Home vs Away Commentator
+
 Play by Play and Stats for each game
