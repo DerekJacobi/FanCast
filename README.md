@@ -30,7 +30,9 @@ Change login into
 
 ####General:
 
-Titles on all pages in tabs
+Top nav bar should not have rounded edges
+
+Titles on all pages to show in tabs
 
 Logo
 
