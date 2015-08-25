@@ -10,14 +10,19 @@ class UsersController < ApplicationController
   def show
     @users = User.all
     broadcasts = Broadcast.all
-    @usersbroadcasts = broadcasts.select {|broadcast| broadcast["user"] == @current_user.id.to_s}
-    @followteams = current_user.follow_teams.all
+    if current_user
+      @usersbroadcasts = broadcasts.select {|broadcast| broadcast["user"] == @current_user.id.to_s}
+      @followteams = current_user.follow_teams.all
+      @followUsers = current_user.follows.all
+      @followUsersUpdate = current_user.follows.all
+      @followUser = current_user.follows.find_by(follower_id:@user.id)
+    end
+    @followteamsOther = @user.follow_teams.all
+    @followUsersOther = @user.follows.all
+    @followUserOther = @user.follows.find_by(follower_id:@user.id)
     @broadcasts = Broadcast.all
     @games = Game.all
     @followAll = Follow.all
-    @followUsers = current_user.follows.all
-    @followUsersUpdate = current_user.follows.all
-    @followUser = current_user.follows.find_by(follower_id:@user.id)
     @followUserNew = Follow.new
 
   end
