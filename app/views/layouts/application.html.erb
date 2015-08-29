@@ -78,7 +78,7 @@
               <li><a href="#">Following</a></li>
               <li><a href="#">Upcoming Events</a></li>
               <li role="separator" class="divider"></li>
-              <li><a href="#">Settings</a></li>
+              <li><%= link_to 'Settings', edit_user_path(current_user) %></li>
               <% if current_user %>
                 <li><%= link_to('Logout', session_path, :method => :delete) %></li>
               <%end%>
@@ -125,5 +125,6 @@
   <div class="container">
     <%= yield %>
   </div>
+
 </body>
 </html>

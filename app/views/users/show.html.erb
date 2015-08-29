@@ -139,7 +139,7 @@
                         <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
                       </span>
                   <% end %>
-                  <% end %>
+              <% end %>
           <% end %>
 
           <% else %>
@@ -151,6 +151,18 @@
                   <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
                 </span>
             <% end %>
+          <% end %>
+          <br/>
+          <% if @user.twitter != "" %>
+            <a href="http://twitter.com/<%=@user.twitter%>" target="_blank"><i class="fa fa-twitter-square" style="font-size: 50px;"></i></a>&nbsp&nbsp&nbsp
+          <% end %>
+
+          <% if @user.instagram != ""%>
+            <a href="http://instagram.com/<%=@user.instagram%>" target="_blank"><i class="fa fa-instagram" style="font-size: 50px;"></i></a>&nbsp&nbsp&nbsp
+          <% end %>
+
+          <% if @user.facebook != "" %>
+            <a href="http://facebook.com/<%=@user.facebook%>" target="_blank"><i class="fa fa-facebook-official" style="font-size: 50px;"></i></a>
           <% end %>
         </div>
         <div class="user-left-bottom">
@@ -277,7 +289,7 @@
                <% end %>
               <% end %>
              </div>
-        ``</div>
+         </div>
     <% end %>
  <% end %>
 
