@@ -62,6 +62,8 @@ class GamesController < ApplicationController
       @team_id = "DEN"
   elsif team == "Chiefs"
       @team_id = "KC"
+  elsif team == "Seahawks"
+      @team_id = "SEA"
   elsif team == "Raiders"
       @team_id = "OAK"
   elsif team == "Chargers"

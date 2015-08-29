@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   root to: 'users#new'
 
+  get 'home' => 'welcome#home'
+
   get 'games' => 'games#index'
 
   get 'games/nfl' => 'games#nfl', as: :nfl
