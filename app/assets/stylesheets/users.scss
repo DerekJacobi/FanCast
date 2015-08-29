@@ -92,6 +92,9 @@ th {
     text-align: left !important;
     vertical-align: middle !important;
     border-radius: 2px !important;
+    font-size: 16px;
+    color: black !important;
+
 }
 
 td {
@@ -100,6 +103,8 @@ td {
   text-align: left !important;
   vertical-align: middle !important;
   border-radius: 2px !important;
+  font-size: 22px;
+  color: black !important;
 }
 
 table {
@@ -108,8 +113,15 @@ table {
     border-collapse: separate !important;
     border-spacing: 12px !important;
     color: white !important;
+    background-color:white !important;
+    opacity: .5;
+    border-radius:20px;
 }
 
 #sign_in{
   color : white !important;
+}
+
+#bc-index {
+  color: #575D90 !important;
 }

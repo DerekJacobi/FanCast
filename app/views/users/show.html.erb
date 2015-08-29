@@ -83,7 +83,7 @@
         </div>
         <div class="user-left-bottom">
           <h4>Teams <%=@user.name%> Follows:</h4>
-           <% @followteams.each do |followteam| %>
+           <% @followteamsOther.each do |followteam| %>
              <%if followteam.user_id == @user.id && followteam.active == true %>
                 <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
             <% end %>
@@ -93,7 +93,7 @@
       <div class="user-right-col">
         <div class="user-right-top">
           <h4>Their Upcoming Broadcasts</h4>
-            <% @followUsers.each do |f| %>
+            <% @followUsersOther.each do |f| %>
               <% @broadcasts.each do |b| %>
                 <%if b.user == f.follower.id.to_s && f.active == true %>
                  <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
@@ -140,7 +140,7 @@
                       </span>
                   <% end %>
               <% end %>
-            <% end %>
+          <% end %>
 
           <% else %>
             <%= form_for @followUserNew do |f| %>
@@ -151,6 +151,18 @@
                   <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
                 </span>
             <% end %>
+          <% end %>
+          <br/>
+          <% if @user.twitter != "" %>
+            <a href="http://twitter.com/<%=@user.twitter%>" target="_blank"><i class="fa fa-twitter-square" style="font-size: 50px;"></i></a>&nbsp&nbsp&nbsp
+          <% end %>
+
+          <% if @user.instagram != ""%>
+            <a href="http://instagram.com/<%=@user.instagram%>" target="_blank"><i class="fa fa-instagram" style="font-size: 50px;"></i></a>&nbsp&nbsp&nbsp
+          <% end %>
+
+          <% if @user.facebook != "" %>
+            <a href="http://facebook.com/<%=@user.facebook%>" target="_blank"><i class="fa fa-facebook-official" style="font-size: 50px;"></i></a>
           <% end %>
         </div>
         <div class="user-left-bottom">
@@ -178,7 +190,109 @@
       </div>
     </div>
   <% end %>
-<% end %>
+
+<% else %>
+  <% if @user.listener? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3><%= @user.name%>'s page!</h3>
+        </div>
+        <div class="user-left-bottom">
+          <h4>Teams <%=@user.name%> Follows:</h4>
+           <% @followteamsOther.each do |followteam| %>
+             <%if followteam.user_id == @user.id && followteam.active == true %>
+                <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user-right-col">
+        <div class="user-right-top">
+          <h4>Their Upcoming Broadcasts</h4>
+            <% @followUsersOther.each do |f| %>
+              <% @broadcasts.each do |b| %>
+                <%if b.user == f.follower.id.to_s && f.active == true %>
+                 <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
+                <% end %>
+              <% end %>
+            <% end %>
+        </div>
+        <div class="user-right-bottom">
+          <h4>Broadcasters <%=@user.name%> Follows:</h4>
+          <% @followAll.each do |f| %>
+            <%if f.user_id == @user.id%>
+             <a href="/users/<%=f.follower_id %>"><%=User.find_by(id:f.follower_id).name %></a></br>
+             <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% elsif @user.broadcaster? %>
+    <div class="user-main">
+      <div class="user-left-col">
+        <div class="user-left-top">
+          <h3>Welcome to <%= @user.name%>'s Broadcasting page!</h3>
+          <% if @followUsersOther %>
+            <% @followUsersOther.each do |follow| %>
+              <% if follow.follower_id == @user.id && follow.active == true %>
+                  <%= form_for @followUser do |f| %>
+                    <input type="hidden" name="_method" value="patch">
+                    <%= f.hidden_field :user_id, value: current_user.id %>
+                    <%= f.hidden_field :follower_id, value: @user.id %>
+                    <%= f.hidden_field :active, value: false  %>
+                    <span class="mdl-layout-title">
+                      <button class="team-follow-button"  type="submit" name="action">Unfollow <%= @user.name %></button>
+                    </span>
+                  <% end %>
+              <% elsif follow.follower_id == @user.id && follow.active == false %>
+                  <%= form_for @followUserOther do |f| %>
+                      <input type="hidden" name="_method" value="patch">
+                      <%= f.hidden_field :user_id, value: current_user.id %>
+                      <%= f.hidden_field :follower_id, value: @user.id %>
+                      <%= f.hidden_field :active, value: true  %>
+                      <span class="mdl-layout-title">
+                        <button class="team-follow-button" id="follow" type="submit" name="action">Follow <%= @user.name %></button>
+                      </span>
+                  <% end %>
+            <% end %>
+            <% end %>
+            <% end %>
+          </div>
+
+            <div class="user-left-bottom">
+              <h4>Teams <%=@user.name%> Follows:</h4>
+               <% @followteamsOther.each do |followteam| %>
+                 <%if followteam.user_id == @user.id && followteam.active == true %>
+                    <a href="/games/nfl/<%=followteam.team %>"><%=followteam.team %></a></br>
+                <% end %>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="user-right-col">
+            <div class="user-right-top">
+              <h4>Their Upcoming Broadcasts</h4>
+                <% @followUsersOther.each do |f| %>
+                  <% @broadcasts.each do |b| %>
+                    <%if b.user == f.follower.id.to_s && f.active == true %>
+                     <a href="/broadcasts/<%=f.follower_id%>/<%=b.id %>"><%=User.find_by(id:f.follower_id).name %> - <%= b.away %> @ <%= b.home %></a></br>
+                    <% end %>
+                  <% end %>
+                <% end %>
+            </div>
+            <div class="user-right-bottom">
+              <h4>Broadcasters <%=@user.name%> Follows:</h4>
+              <% @followAll.each do |f| %>
+                <%if f.user_id == @user.id%>
+                 <a href="/users/<%=f.follower_id %>"><%=User.find_by(id:f.follower_id).name %></a></br>
+               <% end %>
+              <% end %>
+             </div>
+         </div>
+    <% end %>
+ <% end %>
+
 
 <!--
   Below we include the Login Button social plugin. This button uses

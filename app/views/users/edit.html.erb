@@ -1,9 +1,10 @@
 <div class="panel panel-info">
+
+  <% if current_user.listener? %>
     <div class="panel-heading">
       <div class="panel-title">Sign Up</div>
     </div>
     <div class="panel-body" >
-
       <%= form_for @user,:html => {:class => "form-horizontal"} do |f|%>
 
             <input value="broadcaster" type="hidden" name="user[role]" id="user_role">
@@ -50,7 +51,58 @@
                   <button for="signupform" id="btn-signup" type="submit" name="action" class="btn btn-info"><i class="icon-hand-right"></i>Become a Broadcaster</button>
               </div>
             </div>
+        </div>
+        <% end %>
+    <% elsif current_user.broadcaster? %>
+    <div class="panel-heading">
+      <div class="panel-title">Settings</div>
+    </div>
+    <div class="panel-body" >
+      <%= form_for @user,:html => {:class => "form-horizontal"} do |f|%>
+        <div class="form-group">
+            <label for="user_location" data-error="wrong" data-success="right" class="col-md-3 control-label">Location</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[location]" id="user_location" class="validate" value="<%=current_user.location%>">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="user_mixlr" class="col-md-3 control-label">Mixlr</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[mixlr]" id="user_mixlr" value="<%=current_user.mixlr%>">
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="user_facebook" class="col-md-3 control-label">Facebook</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[facebook]" id="user_facebook" value="<%=current_user.facebook%>">
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="user_twitter" class="col-md-3 control-label">Twitter</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[twitter]" id="user_twitter" value="<%=current_user.twitter%>">
+            </div>
+        </div>
+
+        <div class="form-group">
+          <label for="user_instagram" class="col-md-3 control-label">Instagram</label>
+            <div class="col-md-9">
+                <input type="text" class="form-control" name="user[instagram]" id="user_instagram" value="<%=current_user.instagram%>">
+            </div>
+        </div>
+        <!-- Button -->
+        <div class="form-group">
+
+        <div class="col-md-offset-6 col-md-9">
+              <button for="signupform" id="btn-signup" type="submit" name="action" class="btn btn-info"><i class="icon-hand-right"></i>Update Profile</button>
+          </div>
+        </div>
+
 
     </div>
-      <%end%>
+    <%end%>
+  <% end %>
 </div>
